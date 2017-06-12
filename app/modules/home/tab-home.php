@@ -1,11 +1,10 @@
 <?php
 namespace App\Modules\Home;
 use App\AbstractController;
-use App\Model\Entity\Paperwork_Table;
-use App\Model\LawCashing;
+use App\Model\Entity\Passage_Table;
 use DateTime;
 use DateInterval;
-use App\Model\Dso;
+
 
 
 class TabHome extends AbstractController{
@@ -13,21 +12,21 @@ class TabHome extends AbstractController{
    
     function load(){
 
-
-		//$paperwork = $this->di->get(Paperwork_Table::class);
         $debtor = $this->db['user'][$this->user->instance_id];
+        $article = $this->db['article'];
+        $site = $this->db['site'];
 		$data = [
 			'user' => $debtor,
+            'articles' => $article,
+            'sites' => $site,
 		];
 		//ddj($data);
 		return $data;
 	}
 
-
-
-
-
-	
+    function store($data){
+        return $this->db['passage']->simpleEntity($data)->store();
+    }
 
 
 }

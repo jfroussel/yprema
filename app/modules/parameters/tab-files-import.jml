@@ -10,7 +10,7 @@
 	<div class="col-md-4">
 		<div class="card">
 			<div class="card-header ch-alt">
-				<h2>Importer vos sociétés</h2>
+				<h2>Importer vos chauffeurs</h2>
 				<br>
 				<ul class="actions">
 					<li>
@@ -24,7 +24,7 @@
 						<div class="col-md-6">
 							<div class="float-left">
 								<label class="btn btn-yellow btn-file">
-									fichier sociétés  (max {{::maxfilesize}}) <input type="file" name="file" style="display: none;">
+									cartes fidélité  (max {{::maxfilesize}}) <input type="file" name="file" style="display: none;">
 								</label>
 							</div>
 							<div class="float-left import-state">
@@ -44,7 +44,7 @@
 	<div class="col-md-4">
 		<div class="card">
 			<div class="card-header ch-alt import-paperwork-head">
-				<h2>Importer vos actions</h2>
+				<h2>Importer vos cartes de fidélités</h2>
 				<br>
 				<ul class="actions">
 					<li>
@@ -58,7 +58,7 @@
 						<div class="col-md-6">
 							<div class="float-left">
 								<label class="btn btn-yellow btn-file">
-									fichier actions  (max {{::maxfilesize}}) <input type="file" name="file" style="display: none;">
+									fichier chauffeurs  (max {{::maxfilesize}}) <input type="file" name="file" style="display: none;">
 								</label>
 							</div>
 							<div class="float-left import-state">
@@ -78,7 +78,7 @@
 	<div class="col-md-4">
 		<div class="card">
 			<div class="card-header ch-alt import-contact-head">
-				<h2>Importer vos contacts</h2>
+				<h2>Importer vos passages</h2>
 				<br>
 				<ul class="actions">
 					<li>
@@ -92,7 +92,7 @@
 						<div class="col-md-6">
 							<div class="float-left">
 								<label class="btn btn-yellow btn-file">
-									fichier contacts  (max {{::maxfilesize}}) <input type="file" name="file" style="display: none;">
+									fichier passages  (max {{::maxfilesize}}) <input type="file" name="file" style="display: none;">
 								</label>
 							</div>
 							<div class="float-left import-state">
@@ -118,7 +118,7 @@
 			<form class="form-horizontal importmap" j-name="importmap.debtor" name="debtor">
 				<div j-if="userColumns.debtor" class="import-config">
 					<div class="csv-debtor">
-						<h4>Mapping de vos champs sociétés</h4>
+						<h4>Mapping de vos champs chauffeurs</h4>
 						
 						<div class="import-keys">							
 							<fieldset class="form-group required import-config-primary">
@@ -159,7 +159,7 @@
 			<form class="form-horizontal importmap" j-name="importmap.paperwork"  name="paperwork">
 				<div j-if="userColumns.paperwork" class="import-config">
 					<div class="csv-paperwork">
-						<h4>Mapping de vos champs actions</h4>
+						<h4>Mapping de vos champs cartes fidélité</h4>
 						
 						<div class="import-keys">							
 							<fieldset class="form-group required import-config-primary">
@@ -211,7 +211,7 @@
 			<form class="form-horizontal importmap" j-name="importmap.contact" name="contact">
 				<div j-if="userColumns.contact" class="import-config">
 					<div class="csv-contact">
-						<h4>Mapping de vos champs contacts</h4>
+						<h4>Mapping de vos champs passages</h4>
 
 						<div class="import-keys">
 							<fieldset class="form-group required import-config-primary">
@@ -226,17 +226,17 @@
 								</div>
 							</fieldset>
 
-							<fieldset class="form-group required">
-								<div class="row">
-									<label class="col-md-4 control-label">référence sociétés</label>
-									<div class="col-md-8">
-										<select name="debtor_primary" data-rule-uniqselection="contact-keys" autocomplete="off" required>
-											<option value="">non défini</option>
-											<option j-for="userColumn in userColumns.contact" :value="{{userColumn}}">{{userColumn}}</option>
-										</select>
-									</div>
-								</div>
-							</fieldset>
+							<!--<fieldset class="form-group required">-->
+								<!--<div class="row">-->
+									<!--<label class="col-md-4 control-label">référence sociétés</label>-->
+									<!--<div class="col-md-8">-->
+										<!--<select name="debtor_primary" data-rule-uniqselection="contact-keys" autocomplete="off" required>-->
+											<!--<option value="">non défini</option>-->
+											<!--<option j-for="userColumn in userColumns.contact" :value="{{userColumn}}">{{userColumn}}</option>-->
+										<!--</select>-->
+									<!--</div>-->
+								<!--</div>-->
+							<!--</fieldset>-->
 						</div>
 
 						<div class="import-contact-area">

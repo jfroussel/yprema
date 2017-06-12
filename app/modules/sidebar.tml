@@ -48,18 +48,11 @@
 				<li class="sub-menu active">
 					<a href=""><i class="zmdi zmdi-widgets"></i> Consulter</a>
 					<ul>
-						<li><a class="active" href="#debtors/all">Sociétés</a></li>
-						<li><a class="active" href="#contacts/all">Contacts</a></li>
-						<li><a class="active" href="#paperworks/all">Actions</a></li>
+						<li><a class="active" href="#debtors/all">Chauffeurs</a></li>
+						<li><a class="active" href="#paperworks/all">Cartes de fidelité</a></li>
+						<li><a class="active" href="#passages/all">Passages</a></li>
 					</ul>
 				</li>
-				<li class="sub-menu">
-				<a href=""><i class="zmdi zmdi-filter-list"></i> Statistiques des actions</a>
-					<ul>
-
-					</ul>
-				</li>
-
 			</ul>
 		</div>
 	</aside>

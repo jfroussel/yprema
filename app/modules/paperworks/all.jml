@@ -3,7 +3,7 @@
 </ol>
 <div class="card">
     <div class="card">
-        <h3>Liste des actions</h3>
+        <h3>Cartes de fidélité</h3>
         <table
 			is="datatables"
 			j-data-ajax--url="plugins/datatables.json?table=paperwork"
@@ -16,14 +16,14 @@
             <thead>
             <tr style="font-size: 10px">
                 <th data-column="id" data-visible="false">id</th>
-                <th data-column="categorie">Categorie</th>
-                <th data-column="a_faire_par">à faire par</th>
-                <th data-column="">Type compte</th>
-                <th data-column="date_debut" data-format="dateformat">date de debut</th>
-                <th data-column="date_fin" data-format="dateformat">date de fin</th>
+                <th data-column="primary">n° Carte</th>
+                <th data-column="debtor_primary">id chauffeur</th>
+                <th data-column="solde_base">solde de base</th>
+                <th data-column="solde_bonus">solde bonus</th>
+                <th data-column="site_creation">site creation</th>
+                <th data-column="ctime" data-format="dateformat">date de creation</th>
+                <th data-column="mtime" data-format="dateformat">date de modification</th>
                 <th data-column="statut">statut</th>
-                <th data-action="edit" data-route="paperworks/update?id="></th>
-                <th data-action="remove" data-route="paperworks/update?id="></th>
             </tr>
             </thead>
             <tbody></tbody>

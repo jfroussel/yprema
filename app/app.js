@@ -81,10 +81,22 @@ let routes = {
 	"home/tab-actions": require("./modules/home/tab-actions").default,
 	"home/tab-agenda": require("./modules/home/tab-agenda").default,
 	"debtors/tab-analyse": require("./modules/debtors/tab-analyse").default,
-	"parameters/tab-api": require("./modules/parameters/tab-api").default,
-	"parameters/tab-banques": require("./modules/parameters/tab-banques").default,
+	"parameters/tab-sites": require("./modules/parameters/tab-sites").default,
+
+	"parameters/articles/all": require("./modules/parameters/articles/all").default,
+    "parameters/articles/update": require("./modules/parameters/articles/update").default,
+    "parameters/articles/create": require("./modules/parameters/articles/create").default,
+
+    "parameters/cadeaux/all": require("./modules/parameters/cadeaux/all").default,
+    "parameters/cadeaux/update": require("./modules/parameters/cadeaux/update").default,
+    "parameters/cadeaux/create": require("./modules/parameters/cadeaux/create").default,
+
+    "parameters/sites/all": require("./modules/parameters/sites/all").default,
+    "parameters/sites/update": require("./modules/parameters/sites/update").default,
+    "parameters/sites/create": require("./modules/parameters/sites/create").default,
+
     "parameters/tab-parameters-home": require("./modules/parameters/tab-parameters-home").default,
-	"parameters/tab-billings": require("./modules/parameters/tab-billings").default,
+	"parameters/tab-cadeaux": require("./modules/parameters/tab-cadeaux").default,
 	"debtors/tab-debtors-contacts": require("./modules/debtors/tab-debtors-contacts").default,
 	"debtors/tab-debtors-paperworks": require("./modules/debtors/tab-debtors-paperworks").default,
 	"debtors/tab-debtors-surveillance": require("./modules/debtors/tab-debtors-surveillance").default,
@@ -94,7 +106,6 @@ let routes = {
 	"home/tab-home": require("./modules/home/tab-home").default,
 	"debtors/tab-litige": require("./modules/debtors/tab-litige").default,
 	"debtors/tab-parametres": require("./modules/debtors/tab-parametres").default,
-	"parameters/tab-plugins": require("./modules/parameters/tab-plugins").default,
 	"debtors/tab-promesse": require("./modules/debtors/tab-promesse").default,
 	"debtors/tab-scenario": require("./modules/debtors/tab-scenario").default,
 	"parameters/tab-scenarios": require("./modules/parameters/tab-scenarios").default,
@@ -120,6 +131,7 @@ let routes = {
 	"templates/update": require("./modules/templates/update").default,
 	"users/update": require("./modules/users/update").default,
 	"users/update_user": require("./modules/users/update_user").default,
+	"passages/all": require("./modules/passages/all").default,
 };
 
 

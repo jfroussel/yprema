@@ -28,16 +28,7 @@
 
                         </div>
                         <hr>
-                        <div>
-                            <h5>Contact principal</h5>
-                            <i class="fa fa-user" aria-hidden="true"></i>&nbsp{{(contact.nom ==null?'non defini':contact.nom)}}
-                            &nbsp{{(contact.prenom ==null?'non defini':contact.prenom)}}({{(contact.fonction ==null?'non defini':contact.fonction)}})<br>
-                            <i class="fa fa-envelope" aria-hidden="true"></i>&nbsp{{(contact.email ==null?'non defini':contact.email)}}<br>
-                            <i class="fa fa-phone" aria-hidden="true"></i>&nbsp{{(contact.tel ==null?'non defini':contact.tel)}}&nbsp
-                            <i class="fa fa-mobile" aria-hidden="true"></i>&nbsp{{(contact.mobile ==null?'non defini':contact.mobile)}}<br>
-                            <em><a href="#debtors-contacts" data-jview="debtors/tab-debtors-contacts" data-jview-inherit="debtorOne" role="tab" data-toggle="tab" aria-expanded="true">Voir plus ...</a><br></em>
 
-                        </div>
 
                     </div>
                 </div>

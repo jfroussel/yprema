@@ -7,6 +7,14 @@ use App\Model\NormalizeTrait;
 class Debtor_Row extends EntityModel{
 	use NormalizeTrait;
 	protected $validateProperties = [
+        'id',
+        'id_chauffeur',
+        'solde_base',
+        'solde_bonus',
+        'ctime',
+        'statut',
+        'mtime',
+        'site_creation'
 
 
 	];

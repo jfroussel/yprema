@@ -2,6 +2,50 @@
 <div class="container-fluid" style="padding-top: 20px">
     <h5>Bienvenue {{user.first_name}} {{user.last_name}}</h5>
     <p>Vous êtes connecté en tant que {{ user.email }} de la société {{ user.company_name }}</p>
+    <hr>
+
+    <div class="row">
+        <h1 class="text-left">Saisir un nouveau passage!</h1>
+        <div class="jumbotron">
+            <form  j-name="passage"  id="passage">
+                <div class="col-md-4">
+                    <p class="c-black f-500 m-b-20">Code bar de la carte</p>
+                    <input class="form-control" type="text" name="barcode" placeholder="scanner le code barre de la carte">
+                </div>
+                <div class="col-md-4">
+                    <p class="c-black f-500 m-b-20">Site</p>
+                    <div class="fg-line">
+                        <div class="select">
+                            <select  class="form-control"  name="site" autocomplete="off">
+                                <option value="" disabled selected>Choisir un site...</option>
+                                <option j-for="site in sites" :value="{{site.libelle}}">{{site.code}} - {{site.libelle}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <hr>
+                </div>
+                <div class="col-md-4">
+                    <p class="c-black f-500 m-b-20">Type d'article</p>
+                    <div class="fg-line">
+                        <div class="select">
+                            <select  class="form-control"  name="article" autocomplete="off">
+                                <option value="" disabled selected>Choisir un article...</option>
+                                <option j-for="article in articles" :value="{{article.designation}}">{{article.code}} - {{article.designation}} - {{article.mouvement}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <hr>
+                </div>
+
+                <div class="col-md-12 text-left">
+                    <p>
+                        <button type="submit" class="btn btn-lg btn-primary">Valider le passage</button>
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+    <hr>
 </div>
 
 

@@ -19,61 +19,34 @@ class TabFileImport extends AbstractController{
 	protected $importingDirPattern = '.data/importing/%s/';
 	protected $columns = [
 		'debtor'=>[
-            'type',
-            'sysid',
-            'sysmid',
-            'syspid',
-            'sysgid',
-            'syscreate',
-            'sysupdate',
-            'commercial',
-            'raison_sociale',
+            'id',
+            'civ',
+            'nom',
+            'prenom',
+            'portable',
+            'entreprise',
             'adresse',
             'code_postal',
             'ville',
-            'pays',
-            'lat',
-            'lng',
-            'memo',
-            'web_site',
-            'tel'
+            'email',
+            'flag_delete',
+            'date_delete'
 		],
 		'paperwork'=>[
-            'type',
-            'sysid',
-            'sysmid',
-            'syspid',
-            'sysgid',
-            'syscreate',
-            'sysupdate',
-            'a_faire_par',
-            'categorie',
-            'civilite',
-            'date_debut',
-            'date_fin',
+            'id',
+            'id_chauffeur',
+            'solde_base',
+            'solde_bonus',
+            'solde_total',
             'statut',
-            'memo'
+            'ctime',
+            'mtime',
+            'site_creation'
+
+
 		],
         'contact' =>[
-            'type',
-            'sysid',
-            'sysmid',
-            'syspid',
-            'sysgid',
-            'syscreate',
-            'sysupdate',
-            'civilite',
-            'email',
-            'fax',
-            'fonction',
-            'memo',
-            'ref_contact',
-            'nom',
-            'prenom',
-            'role',
-            'service',
-            'tel',
-            'mobile'
+
         ]
 	];
 	protected $columnsKeys = [

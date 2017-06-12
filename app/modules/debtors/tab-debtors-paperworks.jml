@@ -33,11 +33,13 @@
 	<thead>
 	<tr style="font-size: 10px">
 		<th data-column="id" data-visible="true">id</th>
-		<th data-column="categorie">Categorie</th>
-		<th data-column="a_faire_par">à faire par</th>
-		<th data-column="date_debut" data-format="dateformat">date de debut</th>
-		<th data-column="date_fin" data-format="dateformat">date de fin</th>
+		<th data-column="ctime" data-format="dateformat">Date creation</th>
+		<th data-column="mtime" data-format="dateformat">Date creation</th>
 		<th data-column="statut">statut</th>
+		<th data-column="solde_base">Solde de base</th>
+		<th data-column="solde_bonus">Solde bonus</th>
+		<th data-column="solde_total">Solde total</th>
+		<th data-column="site_creation">site de creation</th>
 		<th data-action="edit" data-route="paperworks/update?id="></th>
 	</tr>
 	</thead>
