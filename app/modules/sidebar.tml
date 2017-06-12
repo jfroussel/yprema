@@ -16,7 +16,7 @@
 						<if "$user->first_name && $user->last_name">
 							<?=$user->first_name?> <?=$user->last_name?> /
 						</if>
-						Groupe : <?=$user->group?><br>
+						Site  : <?=$user->site?><br>
 						<i class="zmdi zmdi-caret-down"></i>
 					</div>
 				</a>

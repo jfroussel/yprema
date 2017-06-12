@@ -30,7 +30,13 @@ class TabFileImport extends AbstractController{
             'ville',
             'email',
             'flag_delete',
-            'date_delete'
+            'date_delete',
+            'barcode',
+            'solde_base',
+            'solde_bonus',
+            'site_creation',
+            'statut',
+            'date_creation'
 		],
 		'paperwork'=>[
             'id',

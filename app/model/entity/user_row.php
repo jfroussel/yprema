@@ -23,6 +23,7 @@ class User_Row extends EntityModel{
 	];
 	protected $validateProperties = [
 		'email',
+        'site',
 		'password',
 		'first_name',
 		'last_name',

@@ -1,30 +1,25 @@
 
 <div class="container-fluid" style="padding-top: 20px">
     <h5>Bienvenue {{user.first_name}} {{user.last_name}}</h5>
-    <p>Vous êtes connecté en tant que {{ user.email }} de la société {{ user.company_name }}</p>
+    <p>Vous êtes connecté en tant que {{ user.email }}</p>
     <hr>
 
     <div class="row">
-        <h1 class="text-left">Saisir un nouveau passage!</h1>
+        <h3 class="text-left">Saisir un nouveau passage pour la carte n° <span id="code"></span></h3>
+        <div class="" id="success">
+            <p><h4><span id="civ"></span> <span id="nom"></span> <span id="prenom"></span> </h4></p>
+            <p><h4><span id="statut"></span></h4></p>
+            <p><button class="btn btn-lg btn-success" id="actualise" style="display:none">Carte perimée !  reactualisez la page</button></p>
+        </div>
+
         <div class="jumbotron">
-            <form  j-name="passage"  id="passage">
+            <form  method="post" j-name="passage"  id="passage">
                 <div class="col-md-4">
                     <p class="c-black f-500 m-b-20">Code bar de la carte</p>
-                    <input class="form-control" type="text" name="barcode" placeholder="scanner le code barre de la carte">
+                    <input class="form-control" type="text" name="barcode" id="barcode" placeholder="scanner le code barre de la carte">
+                    <input class="form-control" type="hidden" name="site" :value="{{user.site}}">
                 </div>
-                <div class="col-md-4">
-                    <p class="c-black f-500 m-b-20">Site</p>
-                    <div class="fg-line">
-                        <div class="select">
-                            <select  class="form-control"  name="site" autocomplete="off">
-                                <option value="" disabled selected>Choisir un site...</option>
-                                <option j-for="site in sites" :value="{{site.libelle}}">{{site.code}} - {{site.libelle}}</option>
-                            </select>
-                        </div>
-                    </div>
-                    <hr>
-                </div>
-                <div class="col-md-4">
+                <div class="col-md-4" id="type-article">
                     <p class="c-black f-500 m-b-20">Type d'article</p>
                     <div class="fg-line">
                         <div class="select">

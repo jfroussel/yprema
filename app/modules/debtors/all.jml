@@ -26,8 +26,12 @@
                 <th data-column="code_postal">code_postal</th>
                 <th data-column="ville">ville</th>
                 <th data-column="email">email</th>
-                <th data-column="flag_delete" >flag_delete</th>
-                <th data-column="date_delete" data-format="dateformat">date_delete</th>
+                <th data-column="barcode">barcode</th>
+                <th data-column="solde_base">solde_base</th>
+                <th data-column="solde_bonus">solde_bonus</th>
+                <th data-column="site_creation">site creation</th>
+                <th data-column="statut">statut</th>
+                <th data-column="date_creation" data-format="dateformat">date_delete</th>
             </tr>
             </thead>
             <tbody></tbody>

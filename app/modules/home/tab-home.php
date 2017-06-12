@@ -12,20 +12,24 @@ class TabHome extends AbstractController{
    
     function load(){
 
-        $debtor = $this->db['user'][$this->user->instance_id];
         $article = $this->db['article'];
         $site = $this->db['site'];
 		$data = [
-			'user' => $debtor,
+            'user'=>$this->db['user'][$this->user->id],
             'articles' => $article,
             'sites' => $site,
 		];
-		//ddj($data);
+        //ddj($data);
 		return $data;
 	}
 
     function store($data){
         return $this->db['passage']->simpleEntity($data)->store();
+    }
+
+    function getChauffeurInfo($data){
+        $rq = $this->db['debtor']->where('barcode = ?', [$data])->getRow();
+        return $rq;
     }
 
 

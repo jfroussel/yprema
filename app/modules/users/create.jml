@@ -37,12 +37,18 @@
 					<div class="input-group m-b-20">
 						<span class="input-group-addon"><i class="fa fa-users"></i></span>
 						<div class="fg-line">
-							<select name="group" id="group" class="form-control">
-								<option value="">Choisir le groupe...</option>
-								<option value="admin">Admin</option>
-								<option value="sales">Sales</option>
-								<option value="assistant">Assistant</option>
-								<option value="gestionnaire">Gestionnaire</option>
+							<select name="site" id="site" class="form-control">
+								<option value="">Choisir le site...</option>
+								<option value="BO">bonneuil</option>
+								<option value="CH">siege chenneviere</option>
+								<option value="EA">espace artisan</option>
+								<option value="EM">emerainville</option>
+								<option value="GE">gennevilliers</option>
+								<option value="LA">lagny</option>
+								<option value="MA">massy</option>
+								<option value="PLG">pluguffan</option>
+								<option value="TR">trappes</option>
+								<option value="MI">mitry mory</option>
 							</select>
 						</div>
 					</div>
