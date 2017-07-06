@@ -330,7 +330,6 @@ if(app){
 		})
 	;
 
-
 	jstack.config.templatesPath = 'app/modules/';
 	jstack.config.controllersPath = 'app/modules/';
 
@@ -340,6 +339,5 @@ if(app){
 	});
 
 	router.run();
-
 
 }

@@ -5,40 +5,63 @@
     <hr>
 
     <div class="row">
-        <h3 class="text-left">Saisir un nouveau passage pour la carte n° <span id="code"></span></h3>
-        <div class="" id="success">
-            <p><h4><span id="civ"></span> <span id="nom"></span> <span id="prenom"></span> </h4></p>
-            <p><h4><span id="statut"></span></h4></p>
-            <p><button class="btn btn-lg btn-success" id="actualise" style="display:none">Carte perimée !  reactualisez la page</button></p>
-        </div>
-
-        <div class="jumbotron">
-            <form  method="post" j-name="passage"  id="passage">
-                <div class="col-md-4">
-                    <p class="c-black f-500 m-b-20">Code bar de la carte</p>
-                    <input class="form-control" type="text" name="barcode" id="barcode" placeholder="scanner le code barre de la carte">
-                    <input class="form-control" type="hidden" name="site" :value="{{user.site}}">
-                </div>
-                <div class="col-md-4" id="type-article">
-                    <p class="c-black f-500 m-b-20">Type d'article</p>
-                    <div class="fg-line">
-                        <div class="select">
-                            <select  class="form-control"  name="article" autocomplete="off">
-                                <option value="" disabled selected>Choisir un article...</option>
-                                <option j-for="article in articles" :value="{{article.designation}}">{{article.code}} - {{article.designation}} - {{article.mouvement}}</option>
-                            </select>
-                        </div>
+        <div class="col-md-8">
+            <h3 class="text-left">Saisir un nouveau passage pour la carte n° <span id="code"></span> </h3>
+            <h4 class="text-left"><span id="statut"></span> </h4>
+            <div class="jumbotron">
+                <form  method="post" j-name="passage"  id="passage">
+                    <div class="col-md-4">
+                        <p class="c-black f-500 m-b-20">Carte de fidélité</p>
+                        <input class="form-control" type="text" name="barcode" id="barcode" placeholder="scanner le code barre de la carte" required>
+                        <input class="form-control" type="hidden" name="site" :value="{{user.site}}">
                     </div>
-                    <hr>
+                    <div class="col-md-4" id="type-article">
+                        <p class="c-black f-500 m-b-20">Type d'article</p>
+                        <div class="fg-line">
+                            <div class="select">
+                                <select  class="form-control"  name="article" autocomplete="off" required>
+                                    <option value="" disabled selected>Choisir un article...</option>
+                                    <option j-for="article in articles" :value="{{article.designation}}">{{article.code}} - {{article.designation}} - {{article.mouvement}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <hr>
+                    </div>
+
+                    <div class="col-md-12 text-left">
+                        <p>
+                            <button type="submit" class="btn btn-lg btn-primary">Valider le passage</button>
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="" id="success" style="display:none">
+                <div class="pmo-block pmo-contact hidden-xs">
+                    <h4>informations chauffeur</h4>
+                    <ul>
+                        <li><i class="zmdi zmdi-account"></i>{{driver.nom==null?'non defini':driver.nom}}</li>
+                        <li><i class="zmdi zmdi-account"></i>{{driver.prenom==null?'non defini':driver.prenom}}</li>
+                        <li><i class="zmdi zmdi-phone"></i>{{driver.portable==null?'non defini':driver.portable}}</li>
+                        <li><i class="zmdi zmdi-email"></i>{{driver.email==null?'non defini':driver.email}}</li>
+                        <li><i class="zmdi zmdi-info"></i>Gestion des points : Solde de base {{driver.solde_base==null?'non defini':driver.solde_base}} /  Solde bonus {{driver.solde_bonus==null?'non defini':driver.solde_bonus}}</li>
+                        <li>
+                            <i class="zmdi zmdi-pin"></i>
+                            <address class="m-b-0 ng-binding">
+                                Entreprise : {{driver.entreprise==null?'non defini':driver.entreprise}}<br>
+                                {{driver.adresse==null?'non defini':driver.adresse}},<br>
+                                {{driver.cp==null?'non defini':driver.cp}} {{driver.ville==null?'non defini':driver.ville}},<br>
+                            </address>
+                        </li>
+                    </ul>
                 </div>
 
-                <div class="col-md-12 text-left">
-                    <p>
-                        <button type="submit" class="btn btn-lg btn-primary">Valider le passage</button>
-                    </p>
-                </div>
-            </form>
+
+                <p><button class="btn btn-lg btn-success" id="actualise" style="display:none">Carte perimée !  reactualisez la page</button></p>
+            </div>
         </div>
+
     </div>
     <hr>
 </div>

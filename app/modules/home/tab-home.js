@@ -9,22 +9,54 @@ export default class extends Module {
         return [
             $serviceJSON('home/tab-home','load'),
         ];
+
+    }
+    setData(json){
+        $.extend(this.data,json);
+        var data = this.data;
+        data.driver = {};
     }
     domReady(){
 
         var self = this;
         var data = self.data;
+
+
+
         // var element = self.element;
-        $("input[name~='barcode']").focus();
-        var barcode = $("#barcode");
+        let inputBarcode = $("input[name~='barcode']");
+        inputBarcode.focus();
+
+
+
+        let barcode = $("#barcode");
+
+        if(barcode.val() == ''){
+            $("#success").hide();
+        }
+
         if(barcode.val() != null){
-            barcode.blur(function(){
+            barcode.focusout(function(){
                 $("#success").show();
                 $("#code").append(barcode.val());
                 $serviceJSON('home/tab-home','getChauffeurInfo',[barcode.val()], function(r){
-                   $("#nom").append(r.nom);
-                   $("#prenom").append(r.prenom);
-                   $("#civ").append(r.civ);
+                  data.driver = {
+                      "nom":r.nom,
+                      "prenom":r.prenom,
+                      "entreprise":r.entreprise,
+                      "adresse":r.adresse,
+                      "cp":r.code_postal,
+                      "ville":r.ville,
+                      "portable":r.portable,
+                      "email":r.email,
+                      "statut":r.statut,
+                      "solde_base":r.solde_base,
+                      "solde_bonus":r.solde_bonus,
+                      "site_creation":r.site_creation,
+                      "date_creation":r.date_creation,
+                  };
+
+
                    $("#statut").append("Carte crée le " + moment(r.date_creation).format('DD/MM/YYYY') + " son statut est  " + r.statut );
 
                    if(r.statut == 'actif'){
@@ -40,6 +72,8 @@ export default class extends Module {
                 });
             });
         }
+
+
 
 
 

@@ -8,6 +8,9 @@ class Passage_Row extends EntityModel{
     protected $validateProperties = [
         'id',
         'site',
+        'nom',
+        'prenom',
+        'entreprise',
         'article',
         'barcode',
         'ctime'
