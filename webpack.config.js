@@ -4,9 +4,7 @@ var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlug
 
 var entry = {
 	"app": [ './app.js' ],
-	"app-lead": [ './app-lead.js' ],
-	"app-outsourcing": [ './app-outsourcing.js' ],
-	"app-marketplace": [ './app-marketplace.js' ],
+	
 };
 
 var alias = {
