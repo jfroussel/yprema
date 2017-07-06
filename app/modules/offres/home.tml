@@ -1,4 +1,7 @@
-<div class="container" style="padding-top:80px">
-    <h1>sprint-crm</h1>
+<div class="container-fluid text-center" style="padding-top:80px;background-color: #408ed2;height:600px">
+   <h3 style="color: #FFFFFF;padding-top:150px">Bienvenue sur Sprint-Yprema</h3>
+    <br>
+    <img src="img/yprema.gif" alt="">
+    <br>
 </div>
 

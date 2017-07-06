@@ -18,17 +18,17 @@
 			<div class="collapse navbar-collapse" id="main-menu">
 
 				<ul class="nav navbar-nav navbar-right" id="navbar-connexion">
-					<if "!$user->id">
-					<li>
-						<a class="page-scroll" title="" href="#">Decouvrir Sprint-crm</a>
-					</li>
-					<li>
-						<a class="page-scroll" title="" href="#">Tarifs</a>
-					</li>
-					<li>
-						<a class="page-scroll" title="" href="#">Centre d'aide</a>
-					</li>
-					</if>
+					<!--<if "!$user->id">-->
+					<!--<li>-->
+						<!--<a class="page-scroll" title="" href="#">Decouvrir Sprint-crm</a>-->
+					<!--</li>-->
+					<!--<li>-->
+						<!--<a class="page-scroll" title="" href="#">Tarifs</a>-->
+					<!--</li>-->
+					<!--<li>-->
+						<!--<a class="page-scroll" title="" href="#">Centre d'aide</a>-->
+					<!--</li>-->
+					<!--</if>-->
 
 					<li>
 						<if "$user->id">
