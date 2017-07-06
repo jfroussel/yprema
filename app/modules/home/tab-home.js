@@ -88,7 +88,6 @@ export default class extends Module {
                 });
                 $('#passage').ajax.reload();
             }
-
         });
 
     }

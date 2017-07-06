@@ -5,7 +5,7 @@
     <hr>
 
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-6">
             <h3 class="text-left">Saisir un nouveau passage pour la carte n° <span id="code"></span> </h3>
             <h4 class="text-left"><span id="statut"></span> </h4>
             <div class="jumbotron">
@@ -15,7 +15,7 @@
                         <input class="form-control" type="text" name="barcode" id="barcode" placeholder="scanner le code barre de la carte" required>
                         <input class="form-control" type="hidden" name="site" :value="{{user.site}}">
                     </div>
-                    <div class="col-md-4" id="type-article">
+                    <div class="col-md-8" id="type-article">
                         <p class="c-black f-500 m-b-20">Type d'article</p>
                         <div class="fg-line">
                             <div class="select">
@@ -36,7 +36,7 @@
                 </form>
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-6">
             <div class="" id="success" style="display:none">
                 <div class="pmo-block pmo-contact hidden-xs">
                     <h4>informations chauffeur</h4>
@@ -56,14 +56,19 @@
                         </li>
                     </ul>
                 </div>
-
-
                 <p><button class="btn btn-lg btn-success" id="actualise" style="display:none">Carte perimée !  reactualisez la page</button></p>
             </div>
         </div>
 
     </div>
     <hr>
+    <div class="col-md-12">
+        <div class="" id="passage-message" style="display:none">
+            <div class="pmo-block pmo-contact hidden-xs">
+                <h3>Le passage a bien été enregistré</h3>
+            </div>
+        </div>
+    </div>
 </div>
 
 
