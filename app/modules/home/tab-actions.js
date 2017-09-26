@@ -1,6 +1,6 @@
 import Module from 'module';
 export default class extends Module {
-	templateUrl(){ return 'home/tab-actions'; }
+	template(){ return require('./tab-actions.jml'); }
     getData(){
         let id = jstack.url.getParams(this.hash).id;
         return [

@@ -20,7 +20,6 @@ let routes = {
 	"drivers/all": require("./modules/drivers/all").default,
 
 	"users/all": require("./modules/users/all").default,
-	"contacts/create": require("./modules/contacts/create").default,
 	
 	"users/create": require("./modules/users/create").default,
 	

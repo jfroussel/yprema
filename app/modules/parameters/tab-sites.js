@@ -2,7 +2,7 @@ import 'validate';
 
 import Module from 'module';
 export default class extends Module {
-	templateUrl(){ return 'parameters/tab-sites'; }
+	template(){ return require('./tab-sites.jml'); }
     getData(){
         return [
         ];

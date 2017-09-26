@@ -5,7 +5,7 @@ import 'chart.js';
 import moment from 'moment';
 
 export default class extends Module {
-	templateUrl(){ return 'drivers/update'; }
+	template(){ return require('./update.jml'); }
 	
 	getData(){
 		var id = jstack.url.getParams(this.hash).id;

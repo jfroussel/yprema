@@ -3,9 +3,7 @@ import 'notify-js';
 
 import Module from 'module';
 export default class extends Module {
-	template(){
-		return require('./create.jml');
-	}
+	template(){ return require('./create.jml'); }
 	getData(){
 		return [
 		

@@ -2,7 +2,7 @@ import 'validate';
 
 import Module from 'module';
 export default class extends Module {
-	templateUrl(){ return 'parameters/tab-files-import'; }
+	template(){ return require('./tab-files-import.jml'); }
 	getData(){
 		return [
 			$serviceJSON('parameters/tab-file-import','load'),

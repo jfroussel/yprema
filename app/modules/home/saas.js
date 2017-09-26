@@ -1,6 +1,6 @@
 import Module from 'module';
 export default class extends Module {
-	templateUrl(){ return 'home/saas'; }
+	template(){ return require('./saas.jml'); }
 	getData(){
 		return [
 		];

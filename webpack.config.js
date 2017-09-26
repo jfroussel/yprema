@@ -46,17 +46,6 @@ var config = {
 				return module.resource && ( /node_modules/.test(module.resource) || /vendor/.test(module.resource) );
 			}
 		}),
-		new webpack.optimize.CommonsChunkPlugin({
-			name: 'common',
-			filename: "common.js",
-			minChunks: 2,
-			chunks: [
-				"app",
-				"app-lead",
-				"app-outsourcing",
-				"app-marketplace",
-			],
-		}),
 		
 		/*
 		new BundleAnalyzerPlugin({
@@ -145,6 +134,11 @@ var config = {
 			{
 				test: /\.(jpe?g|png|gif)$/i,
 				loader:"file"
+			},
+			
+			{
+				test: /\.jml?$/,
+				loader: "raw-loader",
 			},
 		],
     },

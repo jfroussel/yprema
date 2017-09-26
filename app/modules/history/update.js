@@ -2,7 +2,7 @@ import 'validate';
 
 import Module from 'module';
 export default class extends Module {
-	templateUrl(){ return 'history/update'; }
+	template(){ return require('./update.jml'); }
     getData(){
         var id = jstack.url.getParams(this.hash).id;
         return [

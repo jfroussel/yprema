@@ -97,7 +97,7 @@ class TabFileImport extends AbstractController{
 	}
 	function getImportedColumns(){
 		$data = [];
-		$dir = sprintf($this->importingDirPattern,$this->user->id);
+		$dir = sprintf($this->importingDirPath,$this->user->id);
 		if(is_file($file=$dir.'driver.csv')){
 			$data['driver'] = $this->getCsvColumns($file);
 		}

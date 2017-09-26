@@ -1,10 +1,17 @@
 <ol class="breadcrumb">
 	<li class="active">Passages</li>
 </ol>
-
+	
+	
     <div class="card">
+		
+		<div class="card-header ch-alt">
+			<div class="pull-right"><a j-href="drivers/create" class="btn btn-brown ">Ajouter un Chauffeur</a></div>
+		</div>
+        
         <h3>Liste des chauffeurs</h3>
 
+		
         <table
                 is="datatables"
                 j-data-ajax--url="plugins/datatables.json?table=driver"

@@ -2,7 +2,7 @@ import 'validate';
 
 import Module from 'module';
 export default class extends Module {
-    templateUrl(){ return 'parameters/tab-parameters-home'; }
+    template(){ return require('./tab-parameters-home.jml'); }
     getData(){
         return [];
     }

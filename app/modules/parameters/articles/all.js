@@ -1,6 +1,6 @@
 import Module from 'module';
 export default class extends Module {
-	templateUrl(){ return 'parameters/articles/all'; }
+	template(){ return require('./all.jml'); }
     getData(){
 		return [];
     }

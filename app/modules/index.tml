@@ -2,20 +2,7 @@
 	<write main>
 		<div class="container-fluid" style="padding-top: 15px">
 			<div class="col-md-2">
-				<switch "$user->type">
-					<case "lead">
-						<incorpore "sidebar-lead.tml">
-					</case>
-					<case "marketplace">
-						<incorpore "sidebar-marketplace.tml">
-					</case>
-					<case "outsourcing">
-						<incorpore "sidebar-outsourcing.tml">
-					</case>
-					<case "default">
-						<incorpore "sidebar.tml">
-					</case>
-				</switch>
+				<incorpore "sidebar.tml">
 			</div>
 			<div class="col-md-10">
 				<div class="builder-wrap" j-app="saas"></div>

@@ -3,7 +3,7 @@ import 'app.datatables';
 
 import Module from 'module';
 export default class extends Module {
-	templateUrl(){ return 'parameters/sites/create'; }
+	template(){ return require('./create.jml'); }
     getData(){
 		return [];
     }

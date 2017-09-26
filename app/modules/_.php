@@ -8,7 +8,7 @@ class _ extends AbstractController implements RenderInterface{
 	
 	function __invoke(Templix $templix){
 		$data = [];
-		$templix->display('modules/saas.tml',$data);
+		$templix->display('modules/index.tml',$data);
 	}
 	
 	function load(){

@@ -4,7 +4,7 @@ import 'notify-js';
 
 import Module from 'module';
 export default class extends Module {
-	templateUrl(){ return 'home/tab-home'; }
+	template(){ return require('./tab-home.jml'); }
     getData(){
         return [
             $serviceJSON('home/tab-home','load'),

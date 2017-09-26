@@ -2,7 +2,7 @@ import 'validate';
 
 import Module from 'module';
 export default class extends Module {
-	templateUrl(){ return 'parameters/tab-gift'; }
+	template(){ return require('./tab-gift.jml'; }
     getData(){
         return [
 

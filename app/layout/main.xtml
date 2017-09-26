@@ -87,11 +87,6 @@ $user = $redcat(App\Route\User::class);
 		<script type="text/javascript">var APP_DEV_MODE = true;</script>
 	</if>
     <script type="text/javascript" src="dist/vendor.js"></script>
-    <script type="text/javascript" src="dist/common.js"></script>
     <script type="text/javascript" src="dist/app.js"></script>
-
-	<if "$user->id">
-		<script type="text/javascript" src="js/chat-freshdesk.js"></script>
-	</if>
 </body>
 </html>

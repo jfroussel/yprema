@@ -4,7 +4,7 @@ import 'notify-js';
 import Module from 'module';
 export default class extends Module {
 	
-	templateUrl(){ return 'users/update'; }
+	template(){ return require('./update.jml'); }
 	
 	getData(){
 		return [
