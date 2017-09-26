@@ -32,12 +32,9 @@ class Create extends AbstractController{
 		$this->table->where('user_id = ?',[$user->id]);
 	}
 	function store($user, Url $url, SilentProcess $silentProcess, Auth $auth){
-		$user = $this->db->simpleEntity('user',$user);
-		$user->user_id = $this->user->id;
-		$user->type = 'saas';
-		$user->hashPassword();
+		$driver = $this->db->simpleEntity('driver',$user);
+		$driver->user_id = $this->user->id;
 		$this->db['user'][] = $user;
-		$this->sendSetPasswordMail($user, $url, $auth, $silentProcess);
 		return $user->id?$user:false;
 	}
 	function checkEmail($email,$compare=null){
@@ -46,20 +43,5 @@ class Create extends AbstractController{
 		return (!$id)||($compare&&$id==$compare);
 	}
 
-	protected function sendSetPasswordMail($user, Url $url, Auth $auth, SilentProcess $silentProcess){
-		$email = $user->email;
-		$name = $user->name;
-		$subject = 'Nouveau compte utilisateur Sprint-crm';
-		$auth->requestReset($email, true, $key);
-		$href = rtrim($url->getBaseHref(),'/').'/auth/set-password?key='.$key;
-		$message = <<<HTML
-		Un compte utilisteur a été créé pour vous, pour pouvoir l'utiliser vous devez d'abord définir le mot de passe en cliquant sur ce lien:
-		<strong><a href="{$href}" target="_blank">Définir votre mot de passe</a></strong>;
-HTML;
-		$silentProcess->register(function()use($email, $name, $subject, $message){
-			$mailer = $this->di->get(PHPMailer::class);
-			$mailer->mail([$email=>$name], $subject, $message);
-		});
-	}
 	
 }

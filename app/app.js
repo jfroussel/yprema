@@ -41,6 +41,7 @@ let routes = {
 	"home/tab-home": require("./modules/home/tab-home").default,
 	"cards/update": require("./modules/cards/update").default,
 	"drivers/update": require("./modules/drivers/update").default,
+	"drivers/create": require("./modules/drivers/create").default,
 	"history/update": require("./modules/history/update").default,
 	"cards/update": require("./modules/cards/update").default,
 	"users/update": require("./modules/users/update").default,

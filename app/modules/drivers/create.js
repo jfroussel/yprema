@@ -20,12 +20,11 @@ export default class extends Module {
 		var form = $(this.element).find('form');
 		form.validate({
 			submitHandler: function(){
-				$serviceJSON('users/create','store',[data.user],function(r){
-					// if(r.id){
-					// 	jstack.route('users/update',{id:r.id});
-					// }
-                    jstack.route('users/all');
-                    $.notify('Votre utilisateur a bien été créé', "success");
+				$serviceJSON('drivers/create','store',[data.driver],function(r){
+					if(r.id){
+						jstack.route('drivers/update',{id: r.id});
+					}
+                    $.notify('Le chauffeur a bien été créé', "success");
 				});
 
 			},
@@ -33,7 +32,7 @@ export default class extends Module {
 				email: {
 					email:true,
 					remote: {
-						url:'users/create.json',
+						url:'drivers/create.json',
 						type:'post',
 						data: {
 							method:'checkEmail',
