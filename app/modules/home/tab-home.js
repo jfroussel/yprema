@@ -37,39 +37,46 @@ export default class extends Module {
 
         if(barcode.val() != null){
             barcode.focusout(function(){
-                $("#success").show();
-                $("#code").append(barcode.val());
-                $serviceJSON('home/tab-home','getChauffeurInfo',[barcode.val()], function(r){
-                  data.driver = {
-                      "nom":r.nom,
-                      "prenom":r.prenom,
-                      "entreprise":r.entreprise,
-                      "adresse":r.adresse,
-                      "cp":r.code_postal,
-                      "ville":r.ville,
-                      "portable":r.portable,
-                      "email":r.email,
-                      "statut":r.statut,
-                      "solde_base":r.solde_base,
-                      "solde_bonus":r.solde_bonus,
-                      "site_creation":r.site_creation,
-                      "date_creation":r.date_creation,
-                  };
+                let barcodeVal = barcode.val();
+                if(barcodeVal){
+                
+					$("#success").show();
+					$("#code").append(barcodeVal);
+					$serviceJSON('home/tab-home','getChauffeurInfo',[barcodeVal], function(r){
+						if(!r){
+							r = {};
+						}
+						data.driver = {
+						  "nom":r.nom,
+						  "prenom":r.prenom,
+						  "entreprise":r.entreprise,
+						  "adresse":r.adresse,
+						  "cp":r.code_postal,
+						  "ville":r.ville,
+						  "portable":r.portable,
+						  "email":r.email,
+						  "statut":r.statut,
+						  "solde_base":r.solde_base,
+						  "solde_bonus":r.solde_bonus,
+						  "site_creation":r.site_creation,
+						  "date_creation":r.date_creation,
+					  };
 
 
-                   $("#statut").append("Carte crée le " + moment(r.date_creation).format('DD/MM/YYYY') + " son statut est  " + r.statut );
+					   $("#statut").append("Carte crée le " + moment(r.date_creation).format('DD/MM/YYYY') + " son statut est  " + r.statut );
 
-                   if(r.statut == 'actif'){
-                       $("#success").addClass('alert alert-success');
-                   }else if(r.statut == 'inactif'){
-                       $("#success").addClass('alert alert-danger');
-                       $(".jumbotron").hide();
-                       $("#actualise").show();
-                       $("#actualise").on('click', function(){
-                           location.reload();
-                       });
-                   }
-                });
+					   if(r.statut == 'actif'){
+						   $("#success").addClass('alert alert-success');
+					   }else if(r.statut == 'inactif'){
+						   $("#success").addClass('alert alert-danger');
+						   $(".jumbotron").hide();
+						   $("#actualise").show();
+						   $("#actualise").on('click', function(){
+							   location.reload();
+						   });
+					   }
+					});
+				}
             });
         }
 
