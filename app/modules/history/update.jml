@@ -1,6 +1,6 @@
 <section id="content">
 	<ol class="breadcrumb">
-		<li class="active"><a j-href="debtors/update?id={{debtor_id}}">Débiteur /  </a></li>
+		<li class="active"><a j-href="drivers/update?id={{driver_id}}">Débiteur /  </a></li>
 	</ol>
     <div class="container-fluid">
 		<div class="jumbotron lead-email">
@@ -9,7 +9,7 @@
 			<hr class="my-4">
 			<p>{{message}}</p>
 			<p class="lead lead-email">
-				<a class="btn btn-primary" j-href="debtors/update?id={{debtor_id}}" role="button">Retour fiche débiteur</a>
+				<a class="btn btn-primary" j-href="drivers/update?id={{driver_id}}" role="button">Retour fiche débiteur</a>
 			</p>
 		</div>
 	</div>

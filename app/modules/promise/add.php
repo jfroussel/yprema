@@ -35,34 +35,32 @@ class Add extends AbstractController{
 			return $data;
 		}
 
-        $debtor_id = $row->debtor_id;
-        $debtor = $db['debtor'][$debtor_id];
-        $instance_id = $row->instance_id;
-        $data['logo'] = '../content/user/'.$instance_id.'/avatar.png';
+        $driver_id = $row->driver_id;
+        $driver = $db['driver'][$driver_id];
+        $data['logo'] = '../content/user/avatar.png';
 
-        $paperworks = $db['paperwork']->reporting($debtor->primary);
-        $data['paperworks'] = $paperworks;
+        $cards = $db['card']->reporting($driver->primary);
+        $data['cards'] = $cards;
 
 
         
-        $paperworks_id = [];
-        foreach($paperworks as $id=>$paperwork){
-			$paperworks_id[] = $id;
+        $cards_id = [];
+        foreach($cards as $id=>$card){
+			$cards_id[] = $id;
 		}
         
         if($request->amount){
 			
-			$posted_paperworks = array_filter($request->paperwork->getArray(),function($id)use($paperworks_id){
-				return in_array($id,$paperworks_id);
+			$posted_cards = array_filter($request->card->getArray(),function($id)use($cards_id){
+				return in_array($id,$cards_id);
 			});
 
             $db['promise'][] = [
-				'debtor_id' => $debtor_id,
+				'driver_id' => $driver_id,
                 'amount' => $request->amount,
-                'instance_id' => $instance_id,
                 'date_reglement' =>$request->date_reglement,
                 'payment_type' =>$request->payment_type,
-                '_xmany2many_paperwork'=>$posted_paperworks,
+                '_xmany2many_card'=>$posted_cards,
             ];
 
             $row->delete();

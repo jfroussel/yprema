@@ -19,7 +19,7 @@
 						</a>
 					</li>
 				</ul>
-				<form class="parameters-import-debtor" enctype="multipart/form-data" j-name="upload" data-type="debtor">
+				<form class="parameters-import-driver" enctype="multipart/form-data" j-name="upload" data-type="driver">
 					<div class="row">
 						<div class="col-md-6">
 							<div class="float-left">
@@ -29,7 +29,7 @@
 							</div>
 							<div class="float-left import-state">
 								<div class="import-loader"><i class="fa fa-spinner fa-spin"></i></div>
-								<div j-if="userColumns.debtor" class="import-success"><i class="fa fa-check m-green"></i></div>
+								<div j-if="userColumns.driver" class="import-success"><i class="fa fa-check m-green"></i></div>
 								<div class="import-failed"><i class="fa fa-close m-red"></i></div>
 							</div>
 						</div>
@@ -43,7 +43,7 @@
 	</div>
 	<div class="col-md-4">
 		<div class="card">
-			<div class="card-header ch-alt import-paperwork-head">
+			<div class="card-header ch-alt import-card-head">
 				<h2>Importer vos cartes de fidélités</h2>
 				<br>
 				<ul class="actions">
@@ -53,7 +53,7 @@
 						</a>
 					</li>
 				</ul>
-				<form class="parameters-import-paperwork" enctype="multipart/form-data" j-name="importdetbor.upload" data-type="paperwork">
+				<form class="parameters-import-card" enctype="multipart/form-data" j-name="importdetbor.upload" data-type="card">
 					<div class="row">
 						<div class="col-md-6">
 							<div class="float-left">
@@ -63,7 +63,7 @@
 							</div>
 							<div class="float-left import-state">
 								<div class="import-loader"><i class="fa fa-spinner fa-spin"></i></div>
-								<div j-if="userColumns.paperwork" class="import-success"><i class="fa fa-check m-green"></i></div>
+								<div j-if="userColumns.card" class="import-success"><i class="fa fa-check m-green"></i></div>
 								<div class="import-failed"><i class="fa fa-close m-red"></i></div>
 							</div>
 						</div>
@@ -115,9 +115,9 @@
 <div class="parameters-import-map">
 	<div class="row">
 		<div class="col-md-4">
-			<form class="form-horizontal importmap" j-name="importmap.debtor" name="debtor">
-				<div j-if="userColumns.debtor" class="import-config">
-					<div class="csv-debtor">
+			<form class="form-horizontal importmap" j-name="importmap.driver" name="driver">
+				<div j-if="userColumns.driver" class="import-config">
+					<div class="csv-driver">
 						<h4>Mapping de vos champs chauffeurs</h4>
 						
 						<div class="import-keys">							
@@ -125,24 +125,24 @@
 								<div class="row">
 									<label class="col-md-4 control-label">référence unique</label>
 									<div class="col-md-8">
-										<select name="primary" class="select" data-live-search="true"  data-rule-uniqselection="debtor-keys" autocomplete="off" required>
+										<select name="primary" class="select" data-live-search="true"  data-rule-uniqselection="driver-keys" autocomplete="off" required>
 											<option value="">non défini</option>
-											<option j-for="(i, userColumn) in userColumns.debtor" :value="{{userColumn}}">{{userColumn}}</option>
+											<option j-for="(i, userColumn) in userColumns.driver" :value="{{userColumn}}">{{userColumn}}</option>
 										</select>
 									</div>
 								</div>
 							</fieldset>			
 						</div>
 						
-						<div class="import-debtor-area">
+						<div class="import-driver-area">
 						
-							<fieldset j-for="systemColumn in columns.debtor" class="form-group" :data-user-column="{{::systemColumn}}">
+							<fieldset j-for="systemColumn in columns.driver" class="form-group" :data-user-column="{{::systemColumn}}">
 								<div class="row">
 									<label class="col-md-4 control-label text-left">{{::systemColumn}}</label>
 									<div class="col-md-8">
-										<select :name="{{::systemColumn}}" type="text" class="select" data-live-search="true" data-rule-uniqselection="debtor-config" autocomplete="off">
+										<select :name="{{::systemColumn}}" type="text" class="select" data-live-search="true" data-rule-uniqselection="driver-config" autocomplete="off">
 											<option value="">non défini</option>
-											<option j-for="(i, userColumn) in userColumns.debtor" :value="{{userColumn}}">{{userColumn}}</option>
+											<option j-for="(i, userColumn) in userColumns.driver" :value="{{userColumn}}">{{userColumn}}</option>
 										</select>
 									</div>
 								</div>
@@ -156,9 +156,9 @@
 		</div>
 
 		<div class="col-md-4">
-			<form class="form-horizontal importmap" j-name="importmap.paperwork"  name="paperwork">
-				<div j-if="userColumns.paperwork" class="import-config">
-					<div class="csv-paperwork">
+			<form class="form-horizontal importmap" j-name="importmap.card"  name="card">
+				<div j-if="userColumns.card" class="import-config">
+					<div class="csv-card">
 						<h4>Mapping de vos champs cartes fidélité</h4>
 						
 						<div class="import-keys">							
@@ -166,9 +166,9 @@
 								<div class="row">
 									<label class="col-md-4 control-label">référence unique</label>
 									<div class="col-md-8">
-										<select name="primary" class="select" data-live-search="true"  data-rule-uniqselection="paperwork-keys" autocomplete="off" required>
+										<select name="primary" class="select" data-live-search="true"  data-rule-uniqselection="card-keys" autocomplete="off" required>
 											<option value="">non défini</option>
-											<option j-for="(i, userColumn) in userColumns.paperwork" :value="{{userColumn}}">{{userColumn}}</option>
+											<option j-for="(i, userColumn) in userColumns.card" :value="{{userColumn}}">{{userColumn}}</option>
 										</select>
 									</div>
 								</div>
@@ -178,24 +178,24 @@
 								<div class="row">
 									<label class="col-md-4 control-label">référence société</label>
 									<div class="col-md-8">
-										<select name="debtor_primary" data-rule-uniqselection="paperwork-keys" autocomplete="off" required>
+										<select name="driver_primary" data-rule-uniqselection="card-keys" autocomplete="off" required>
 											<option value="">non défini</option>
-											<option j-for="userColumn in userColumns.paperwork" :value="{{userColumn}}">{{userColumn}}</option>
+											<option j-for="userColumn in userColumns.card" :value="{{userColumn}}">{{userColumn}}</option>
 										</select>
 									</div>
 								</div>
 							</fieldset>
 						</div>
 						
-						<div class="import-paperwork-area">
+						<div class="import-card-area">
 						
-							<fieldset j-for="systemColumn in columns.paperwork" class="form-group" :data-user-column="{{::systemColumn}}">
+							<fieldset j-for="systemColumn in columns.card" class="form-group" :data-user-column="{{::systemColumn}}">
 								<div class="row">
 									<label class="col-md-4 control-label text-left">{{::systemColumn}}</label>
 									<div class="col-md-8">
-										<select :name="{{::systemColumn}}" type="text" class="select" data-live-search="true" data-rule-uniqselection="paperwork-config" autocomplete="off">
+										<select :name="{{::systemColumn}}" type="text" class="select" data-live-search="true" data-rule-uniqselection="card-config" autocomplete="off">
 											<option value="">non défini</option>
-											<option j-for="(i, userColumn) in userColumns.paperwork" :value="{{userColumn}}">{{userColumn}}</option>
+											<option j-for="(i, userColumn) in userColumns.card" :value="{{userColumn}}">{{userColumn}}</option>
 										</select>
 									</div>
 								</div>
@@ -230,7 +230,7 @@
 								<!--<div class="row">-->
 									<!--<label class="col-md-4 control-label">référence sociétés</label>-->
 									<!--<div class="col-md-8">-->
-										<!--<select name="debtor_primary" data-rule-uniqselection="contact-keys" autocomplete="off" required>-->
+										<!--<select name="driver_primary" data-rule-uniqselection="contact-keys" autocomplete="off" required>-->
 											<!--<option value="">non défini</option>-->
 											<!--<option j-for="userColumn in userColumns.contact" :value="{{userColumn}}">{{userColumn}}</option>-->
 										<!--</select>-->
@@ -265,7 +265,7 @@
 
 <div class="row">
 	<div class="col-md-4">
-		<div class="import-manual" data-table="debtor">
+		<div class="import-manual" data-table="driver">
 			<div class="normal">
 				<button class="btn btn-yellow launch float-left">importer</button>
 			</div>
@@ -280,7 +280,7 @@
 		</div>
 	</div>
 	<div class="col-md-4">
-		<div class="import-manual" data-table="paperwork">
+		<div class="import-manual" data-table="card">
 			<div class="normal">
 				<button class="btn btn-yellow launch float-left">importer</button>
 			</div>

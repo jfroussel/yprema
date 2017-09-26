@@ -28,7 +28,7 @@ class TabHome extends AbstractController{
     }
 
     function getChauffeurInfo($data){
-        $rq = $this->db['debtor']->where('barcode = ?', [$data])->getRow();
+        $rq = $this->db['driver']->where('barcode = ?', [$data])->getRow();
         return $rq;
     }
 

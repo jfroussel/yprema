@@ -18,7 +18,7 @@ class Db implements \ArrayAccess {
 	}
 	function offsetGet($k){
 		if(!isset($this->tables[$k])){
-			$this->tables[$k] = $this->db[$k]->scopeInstance();
+			$this->tables[$k] = $this->db[$k];
 			$this->tables[$k]->isFork();
 		}
 		return $this->tables[$k];

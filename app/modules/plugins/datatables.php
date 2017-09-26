@@ -50,7 +50,6 @@ class Datatables extends AbstractController{
 			if(count($x)>1){
 				$action = array_shift($x);
 				$column = implode('_',$x);
-				$this->resolveAlias($tableName,$column,$v);
 				if($table->columnExists($column)){
 					switch($action){
 						case 'whereNot':
@@ -208,20 +207,5 @@ class Datatables extends AbstractController{
 		}
 		
 		return $data;
-	}
-	
-	protected function resolveAlias($tableName,&$column,&$v){
-		if($tableName=='paperwork'&&$column=='debtor_id'){
-			$column = 'debtor_primary';
-			$v = $this->db['debtor'][$v]->primary;
-		}
-        if($tableName=='contact'&&$column=='debtor_id'){
-            $column = 'debtor_primary';
-            $v = $this->db['debtor'][$v]->primary;
-        }
-		if($tableName=='debtor'&&$column=='paperwork_id'){
-			$column = 'primary';
-			$v = $this->db['paperwork'][$v]->debtor_primary;
-		}
 	}
 }

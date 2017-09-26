@@ -16,9 +16,9 @@ use ForceUTF8\Encoding;
 use Redis;
 class TabFileImport extends AbstractController{
 	protected $needAuth = true;
-	protected $importingDirPattern = '.data/importing/%s/';
+	protected $importingDirPath = '.data/importing/';
 	protected $columns = [
-		'debtor'=>[
+		'driver'=>[
             'id',
             'civ',
             'nom',
@@ -38,9 +38,9 @@ class TabFileImport extends AbstractController{
             'statut',
             'date_creation'
 		],
-		'paperwork'=>[
+		'card'=>[
             'id',
-            'id_chauffeur',
+            'id_driver',
             'solde_base',
             'solde_bonus',
             'solde_total',
@@ -56,9 +56,9 @@ class TabFileImport extends AbstractController{
         ]
 	];
 	protected $columnsKeys = [
-		'debtor'=>['primary'],
-		'paperwork'=>['primary','debtor_primary'],
-        'contact'=>['primary','debtor_primary'],
+		'driver'=>['primary'],
+		'card'=>['primary','driver_primary'],
+        'contact'=>['primary','driver_primary'],
 	];
 	protected $db;
 	protected $user;
@@ -75,8 +75,8 @@ class TabFileImport extends AbstractController{
 		$data['userColumns'] = $this->getImportedColumns();
 		$data['importmap'] = $this->getMappedColumns();
 		$data['state'] = [
-		    'debtor'=>$this->checkState('debtor'),
-            'paperwork'=>$this->checkState('paperwork'),
+		    'driver'=>$this->checkState('driver'),
+            'card'=>$this->checkState('card'),
             'contact'=>$this->checkState('contact')
         ];
 		return $data;
@@ -98,11 +98,11 @@ class TabFileImport extends AbstractController{
 	function getImportedColumns(){
 		$data = [];
 		$dir = sprintf($this->importingDirPattern,$this->user->id);
-		if(is_file($file=$dir.'debtor.csv')){
-			$data['debtor'] = $this->getCsvColumns($file);
+		if(is_file($file=$dir.'driver.csv')){
+			$data['driver'] = $this->getCsvColumns($file);
 		}
-		if(is_file($file=$dir.'paperwork.csv')){
-			$data['paperwork'] = $this->getCsvColumns($file);
+		if(is_file($file=$dir.'card.csv')){
+			$data['card'] = $this->getCsvColumns($file);
 		}
         if(is_file($file=$dir.'contact.csv')){
             $data['contact'] = $this->getCsvColumns($file);
@@ -111,14 +111,14 @@ class TabFileImport extends AbstractController{
 	}
 	function getMappedColumns(){
 		$data = [];
-		$map_import_debtor = $this->db['map_import_debtor'];
-		$map_import_paperwork = $this->db['map_import_paperwork'];
+		$map_import_driver = $this->db['map_import_driver'];
+		$map_import_card = $this->db['map_import_card'];
         $map_import_contact = $this->db['map_import_contact'];
-		if($map_import_debtor->exists()){
-			$data['debtor'] = $map_import_debtor->where('user_id = ?',[$this->user->id])->getRow();
+		if($map_import_driver->exists()){
+			$data['driver'] = $map_import_driver->where('user_id = ?',[$this->user->id])->getRow();
 		}
-		if($map_import_paperwork->exists()){
-			$data['paperwork'] = $map_import_paperwork->where('user_id = ?',[$this->user->id])->getRow();
+		if($map_import_card->exists()){
+			$data['card'] = $map_import_card->where('user_id = ?',[$this->user->id])->getRow();
 		}
         if($map_import_contact->exists()){
             $data['contact'] = $map_import_contact->where('user_id = ?',[$this->user->id])->getRow();
@@ -132,9 +132,8 @@ class TabFileImport extends AbstractController{
 		return $data;
 	}
 	function upload(Request $request, Uploader $uploader){
-		$instance = $this->user->instance_id;
-		$dir = sprintf($this->importingDirPattern,$instance);
-		if(!in_array($request->type,['debtor','paperwork', 'contact']))
+		$dir = $this->importingDirPath;
+		if(!in_array($request->type,['driver','card', 'contact']))
 			return;
 		if(!is_dir($dir)){
 			mkdir($dir,0777,true);
@@ -173,12 +172,12 @@ class TabFileImport extends AbstractController{
 		$table[] = $row;
 	}
 	function storeImportMap($data){
-		if(isset($data['debtor'])){
-			$this->storeImportMapProcess('debtor',$data['debtor']);
+		if(isset($data['driver'])){
+			$this->storeImportMapProcess('driver',$data['driver']);
 		}
 		
-		if(isset($data['paperwork'])){
-			$this->storeImportMapProcess('paperwork',$data['paperwork']);
+		if(isset($data['card'])){
+			$this->storeImportMapProcess('card',$data['card']);
 		}
         if(isset($data['contact'])){
             $this->storeImportMapProcess('contact',$data['contact']);

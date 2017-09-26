@@ -6,9 +6,6 @@ class User implements JsonSerializable{
 	function __construct(Session $session){
 		$this->session = $session;
 	}
-	function getInstance(){
-		return $this->__get('instance_id')?:$this->__get('id');
-	}
 	function getSession(){
 		return $this->session;
 	}

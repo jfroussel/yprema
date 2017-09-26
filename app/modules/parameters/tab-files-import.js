@@ -99,14 +99,14 @@ export default class extends Module {
 			});
 		};
 		
-		handlePendingDisplay('debtor');
-		handlePendingDisplay('paperwork');
+		handlePendingDisplay('driver');
+		handlePendingDisplay('card');
         handlePendingDisplay('contact');
 		
-		var formDebtor = el.find('form.parameters-import-debtor');
-		var formPaperwork = el.find('form.parameters-import-paperwork');
+		var formDriver = el.find('form.parameters-import-driver');
+		var formCard = el.find('form.parameters-import-card');
         var formContact = el.find('form.parameters-import-contact');
-		var formsImport = $([formDebtor,formPaperwork,formContact]);
+		var formsImport = $([formDriver,formCard,formContact]);
 		
 		el.on('j:change','input[name=file][type=file]',function(){
 			var btn = $(this);

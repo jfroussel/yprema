@@ -50,12 +50,12 @@
 							</tr>
 							</thead>
 							<tbody>
-							<foreach "$paperworks as $id=>$paperwork">
+							<foreach "$cards as $id=>$card">
 								<tr>
 									<td class="vcenter">
-										<input type="checkbox" name="paperwork[]" value="<?=$id?>" data-amount="<?=$paperwork->debit?>">
+										<input type="checkbox" name="card[]" value="<?=$id?>" data-amount="<?=$card->debit?>">
 									</td>
-									<? foreach($paperwork as $k => $v): ?>
+									<? foreach($card as $k => $v): ?>
 										<td style="font-size: 12px"><?= $v ?></td>
 									<? endforeach; ?>
 								</tr>
@@ -119,14 +119,14 @@
 		
 		let amount = $('[name="amount"]');
 		$('#checkall').on('change',function(){
-			$('input[name="paperwork[]"]').
+			$('input[name="card[]"]').
 				prop('checked',$(this).prop('checked'))
 				.trigger('change')
 			;
 		});
-		$('input[name="paperwork[]"]').on('change',function(){
+		$('input[name="card[]"]').on('change',function(){
 			let amountNumber = 0;
-			$('input[name="paperwork[]"]:checked').each(function(){					
+			$('input[name="card[]"]:checked').each(function(){					
 				amountNumber += Number($(this).attr('data-amount'));
 			});
 			amount.val(amountNumber.toFixed(2).replace('.',','));

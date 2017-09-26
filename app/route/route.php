@@ -29,7 +29,7 @@ class Route extends FrontController{
 		$this->user = $user;
 		
 		$this->prefix('download/',function($path){
-			$file = '.data/content/'.$this->user->instance_id.'/'.$path;
+			$file = '.data/content/'.$path;
 			if(!file_exists($file)){
 				$this->viewError('404');
 				exit;

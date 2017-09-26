@@ -35,8 +35,8 @@
                 <li class="sub-menu">
                     <a href=""><i class="zmdi zmdi-widgets"></i> Consulter</a>
                     <ul>
-                        <li><a class="active" href="#debtors/all">Débiteurs</a></li>
-                        <li><a class="active" href="#paperworks/all">Paperworks</a></li>
+                        <li><a class="active" href="#drivers/all">Débiteurs</a></li>
+                        <li><a class="active" href="#cards/all">Cards</a></li>
                     </ul>
                 </li>
                 <li>

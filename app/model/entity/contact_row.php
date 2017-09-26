@@ -10,8 +10,8 @@ class Contact_Row extends EntityModel{
     protected $validateProperties = [
         'id',
         'primary',
-        'debtor_id',
-        'debtor_primary',
+        'driver_id',
+        'driver_primary',
         'nom',
         'prenom',
         'role',
@@ -38,17 +38,12 @@ class Contact_Row extends EntityModel{
     function beforeRecursive(){}
     function beforeCreate(){
         $this->ctime = $this->now();
-        if(!$this->debtor_primary && $this->debtor_id){
-            $this->debtor_primary = $this->db['debtor'][$this->debtor_id]->primary;
+        if(!$this->driver_primary && $this->driver_id){
+            $this->driver_primary = $this->db['driver'][$this->driver_id]->primary;
         }
     }
     function beforeRead(){}
     function beforeUpdate(){
-
-        if($this->principal){
-            $instance_id = $this->db['contact']->unSelect()->select('instance_id')->where('id = ?',[$this->id])->getCell();
-            $this->db->exec('UPDATE contact SET principal = ? WHERE debtor_primary = ? AND id != ? AND instance_id = ?',[false,$this->debtor_primary,$this->id,$instance_id]);
-        }
         $this->mtime = $this->now();
 
     }

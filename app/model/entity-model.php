@@ -32,21 +32,6 @@ class EntityModel extends RulableModel {
 		
         $this->dynamic = (object)[];
 		
-		$this->on('beforeCreate',function(){
-			if(isset($this->debtor_id)&&$this->debtor_id){
-				if(!isset($this->debtor_primary)){ //keep track of denormalized debtor primary reference
-					$this->debtor_primary = $this->db['debtor']
-						->unSelect()->select('debtor_primary')
-						->where('id = ?',[$this->debtor_id])
-						->getCell();
-				}
-				
-				//fill instance_id from debtor
-				$this->instance_id = $this->db['debtor']->unSelect()->select('instance_id')->where('id = ?',[$this->debtor_id])->getCell();
-				
-			}
-		});
-		
 	}
 	function now(){
 		$date = new DateTime();
