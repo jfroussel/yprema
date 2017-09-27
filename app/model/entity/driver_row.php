@@ -8,7 +8,7 @@ class Driver_Row extends EntityModel{
 	use NormalizeTrait;
 	protected $validateProperties = [
         'id',
-        'id_driver',
+        'card_id',
         'solde_base',
         'solde_bonus',
         'ctime',
@@ -26,6 +26,18 @@ class Driver_Row extends EntityModel{
         $this->dynamic->barcode = $this->db['card']
 			->unSelect()
 			->select('barcode')
+			->where('driver_id = ?',[$this->id])
+			->getCell();
+		
+		$this->dynamic->solde_base = $this->db['card']
+			->unSelect()
+			->select('SUM(solde_base)')
+			->where('driver_id = ?',[$this->id])
+			->getCell();
+        
+        $this->dynamic->solde_bonus = $this->db['card']
+			->unSelect()
+			->select('SUM(solde_bonus)')
 			->where('driver_id = ?',[$this->id])
 			->getCell();
         
@@ -47,7 +59,7 @@ class Driver_Row extends EntityModel{
 
     }
     function beforeUpdate(){
-
+		
     }
     function beforeDelete(){}
     function afterPut(){}
