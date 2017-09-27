@@ -11,4 +11,9 @@ class Driver_Table extends TableModel{
 	function checkFullNameExists($nom,$prenom){
 		return !(trim($nom)&&trim($prenom))?false:$this->db['driver']->unSelect()->select('id')->where('nom = ? AND prenom = ?',[$nom,$prenom])->getCell();
 	}
+	function checkBarcodeExists($barcode){
+		return (!trim($barcode))?false:$this->db['driver']->unSelect()->select('driver.id')
+			->join('card ON card.barcode = ? and card.id = driver.card_id',[trim($barcode)])
+			->getCell();
+	}
 }

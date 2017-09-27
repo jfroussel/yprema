@@ -34,13 +34,23 @@ class Crud extends AbstractController{
 		return $driver->store();
 	}
 	function checkEmail($email,$compare=null){
-		$id = $this->db['driver']->checkEmailExists($email);
+		$id = $this->db['driver']->checkEmailExists(trim($email,','));
 		return (!$id)||($compare&&$id==$compare);
 	}
 	
 	function checkEmailExists($email){
 		return $this->db['driver']->checkEmailExists($email);
 	}
+	
+	function checkBarcode($barcode,$compare=null){
+		$id = $this->db['driver']->checkBarcodeExists(trim($barcode,','));
+		return (!$id)||($compare&&$id==$compare);
+	}
+	
+	function checkBarcodeExists($barcode){
+		return $this->db['driver']->checkBarcodeExists($barcode);
+	}
+	
 	function checkFullNameExists($nom,$prenom){
 		return $this->db['driver']->checkFullNameExists($nom,$prenom);
 	}

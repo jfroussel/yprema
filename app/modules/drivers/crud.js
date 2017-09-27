@@ -37,6 +37,14 @@ export default class extends Module {
 				}
 			});
 		});
+		form.find('input[name=barcode]').on('j:input',function(){
+			if(!(driver.barcode)) return;
+			$serviceJSON('drivers/crud','checkBarcodeExists',[driver.barcode],function(id){
+				if(id&&id!=driver.id){
+					$.notify('Un chauffeur lié à une carte avec le même code barre existe déjà, <a href="/#drivers/crud?id='+id+'">cliquez ici consulter sa fiche</a>',{autoHideDelay: 20000});
+				}
+			});
+		});
 		
 		form.validate({
 			submitHandler: function(){
@@ -72,11 +80,26 @@ export default class extends Module {
 							}
 						}
 					}
+				},
+				barcode: {
+					remote: {
+						url:'drivers/crud.json',
+						type:'post',
+						data: {
+							method:'checkBarcode',
+							params:function(){
+								return [form.find('input[name=barcode]').val(), driver.id];
+							}
+						}
+					}
 				}
 			},
 			messages:{
 				email: {
 					remote: "Cette adresse email est déjà utilisée !"
+				},
+				barcode: {
+					remote: "Ce code barre est déjà utilisé",
 				}
 			}
 		});
