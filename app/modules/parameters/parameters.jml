@@ -6,11 +6,9 @@
 		<div role="tabpanel">
 			<ul class="tab-nav" role="tablist">
 				<li class="active"><a href="#tab-parameters-home" data-jview="parameters/tab-parameters-home" role="tab" data-toggle="tab">Accueil</a></li>
-				<li><a href="#files-import" data-jview="parameters/tab-files-import" role="tab" data-toggle="tab">Import de fichiers</a> </li>
 			</ul>
 			<div class="tab-content">
 				<div role="tabpanel" class="tab-pane active" id="tab-parameters-home"></div>
-				<div role="tabpanel" class="tab-pane" id="files-import"></div>
 			</div>
 		</div>
 	</div>
