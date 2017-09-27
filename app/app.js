@@ -38,10 +38,9 @@ let routes = {
     "parameters/tab-parameters-home": require("./modules/parameters/tab-parameters-home").default,
 	"home/tab-folders": require("./modules/home/tab-folders").default,
 	"home/tab-home": require("./modules/home/tab-home").default,
-	"cards/update": require("./modules/cards/update").default,
 	"drivers/crud": require("./modules/drivers/crud").default,
 	"history/update": require("./modules/history/update").default,
-	"cards/update": require("./modules/cards/update").default,
+	
 	"users/update": require("./modules/users/update").default,
 	"users/update_user": require("./modules/users/update_user").default,
 	"passages/all": require("./modules/passages/all").default,
