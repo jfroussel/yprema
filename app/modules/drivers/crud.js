@@ -10,13 +10,14 @@ export default class extends Module {
 	getData(){
 		var id = jstack.url.getParams(this.hash).id;
 		return [
-			id ? $serviceJSON('drivers/crud','load', [id]) : {},
+			id ? $serviceJSON('drivers/crud','load', [id]) : { driver: {} },
 		];
 	}
 	
 	domReady(){
-       var data = this.data;
+        var data = this.data;
 		var form = $(this.element).find('form');
+		let driver = data.driver;
 		form.validate({
 			submitHandler: function(){
 				$serviceJSON('drivers/crud','store',[data.driver],function(r){
@@ -24,7 +25,13 @@ export default class extends Module {
 						$.notify('Erreur: '+r.error,'error');
 					}
 					else{
-						$.notify('Le chauffeur a bien été créé', "success");
+						$.extend(driver,r.driver);
+						if(driver.id){
+							$.notify('Le chauffeur a bien été mis à jour', "success");
+						}
+						else{
+							$.notify('Le chauffeur a bien été créé', "success");
+						}
 						setTimeout(function(){
 							jstack.route('drivers/crud',{id: r.id});
 						},1000);
