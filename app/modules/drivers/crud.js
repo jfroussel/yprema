@@ -68,7 +68,7 @@ export default class extends Module {
 						data: {
 							method:'checkEmail',
 							params:function(){
-								return [form.find('input[name=email]').val()];
+								return [form.find('input[name=email]').val(), driver.id];
 							}
 						}
 					}
