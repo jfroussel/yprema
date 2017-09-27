@@ -16,8 +16,8 @@
             <thead>
             <tr style="font-size: 10px">
                 <th data-column="id" data-visible="false">id</th>
-                <th data-column="primary">n° Carte</th>
-                <th data-column="driver_primary">id chauffeur</th>
+                <th data-column="barcode">n° Carte</th>
+                <th data-column="driver_id">id chauffeur</th>
                 <th data-column="solde_base">solde de base</th>
                 <th data-column="solde_bonus">solde bonus</th>
                 <th data-column="site_creation">site creation</th>
