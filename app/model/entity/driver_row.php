@@ -8,14 +8,18 @@ class Driver_Row extends EntityModel{
 	use NormalizeTrait;
 	protected $validateProperties = [
         'id',
+		'email',
+		'nom',
+		'prenom',
+        'civ',
+		'portable',
+		'entreprise',
+		'adresse',
+		'code_postal',
+		'ville',
         'card_id',
-        'solde_base',
-        'solde_bonus',
-        'ctime',
         'statut',
-        'mtime',
-        'site_creation'
-
+        'site_creation',
 
 	];
 	protected $validateFilters = [
@@ -47,7 +51,9 @@ class Driver_Row extends EntityModel{
 	
 	
     function beforePut(){
-		
+		if(!trim($this->email)){
+			throw new \Exception("le champs email est dorénavant obligatoire");
+		}
     }
     function beforeRecursive(){}
     function beforeCreate(){

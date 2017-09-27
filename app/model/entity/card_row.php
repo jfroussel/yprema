@@ -10,7 +10,12 @@ class Card_Row extends EntityModel{
 
     protected $validateProperties = [
         'driver_id',
-		//'',
+        'barcode',
+        'solde_base',
+        'solde_bonus',
+        'solde_total',
+        'statut',
+        'site_creation',
     ];
 
 
