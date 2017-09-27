@@ -45,6 +45,16 @@ class Crud extends AbstractController{
 		return $this->db['driver']->checkFullNameExists($nom,$prenom);
 	}
 	
+	function storeStatut($data){
+		$id = $data['id'];
+		$driver = $this->db['driver'][$id];
+		$card_id = $driver->card_id;
+		if(!$card_id) return;
+		$card = $this->db['card'][$card_id];
+		$card->statut = $data['card_statut']=='1'?1:0;
+		return $card->store();
+	}
+	
 	function load($id){	
 		return [
             'driver' =>$this->db['driver'][$id],

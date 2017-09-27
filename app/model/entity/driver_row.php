@@ -48,11 +48,19 @@ class Driver_Row extends EntityModel{
 			->where('driver_id = ?',[$this->id])
 			->getCell();
         
+        $this->dynamic->card_statut = $this->db['card']
+			->unSelect()
+			->select('statut')
+			->where('id = ?',[$this->card_id])
+			->getCell();
+        
         return (array)$this->dynamic;
     }
 
 	
 	
+    function beforeValidate(){
+	}
     function beforePut(){
 		if(!trim($this->email)){
 			throw new ValidationException("le champs email est dorénavant obligatoire");
