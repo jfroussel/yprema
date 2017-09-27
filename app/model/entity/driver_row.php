@@ -29,6 +29,8 @@ class Driver_Row extends EntityModel{
 		
 	];
 	
+	protected $_barcode;
+	
 	function getDynamic(){
         $this->dynamic->barcode = $this->db['card']
 			->unSelect()
@@ -60,6 +62,9 @@ class Driver_Row extends EntityModel{
 	
 	
     function beforeValidate(){
+		if(isset($this->barcode)){
+			$this->_barcode = $this->barcode;
+		}
 	}
     function beforePut(){
 		if(!trim($this->email)){
@@ -75,10 +80,13 @@ class Driver_Row extends EntityModel{
 			}
 		}
 		
-		if(isset($this->barcode)){
-			$id = $table->checkBarcodeExists($this->barcode);
+		if($this->_barcode){
+			$id = $table->checkBarcodeExists($this->_barcode);
 			if($id&&$id!=$this->id){
 				throw new ValidationException("Un chauffeur est déjà enregistré avec ce code barre");
+			}
+			if(!$id){
+				$this->makeNewCard();
 			}
 		}
 		
@@ -106,7 +114,15 @@ class Driver_Row extends EntityModel{
     function afterRecursive(){}
 	
 	
-
+	function makeNewCard(){
+		$card = $this->db->simpleEntity('card',[
+			'driver_id'=>$this->id,
+			'barcode'=>$this->_barcode,
+			'site_creation'=>$this->db['user'][$this->_user->id]->site,
+		]);
+		$card->store();
+		return $card;
+	}
 
 
 
