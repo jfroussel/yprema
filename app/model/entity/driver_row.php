@@ -65,15 +65,29 @@ class Driver_Row extends EntityModel{
 		if(!trim($this->email)){
 			throw new ValidationException("le champs email est dorénavant obligatoire");
 		}
+		
+		$table = $this->db['driver'];
+		
+		if(isset($this->email)){
+			$id = $table->checkEmailExists($this->email);
+			if($id&&$id!=$this->id){
+				throw new ValidationException("Un chauffeur est déjà enregistré avec cet email");
+			}
+		}
+		
+		if(isset($this->barcode)){
+			$id = $table->checkBarcodeExists($this->barcode);
+			if($id&&$id!=$this->id){
+				throw new ValidationException("Un chauffeur est déjà enregistré avec ce code barre");
+			}
+		}
+		
 		if(isset($this->statut)){
 			$this->statut = $this->statut?1:0;
 		}
     }
     function beforeRecursive(){}
     function beforeCreate(){
-		if($this->checkEmailExists($this->email)){
-			throw new ValidationException("Un chauffeur est déjà enregistré avec cet email");
-		}
     }
 
     function beforeRead(){
