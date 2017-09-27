@@ -13,6 +13,8 @@ use RedCat\Framework\FrontController\AssetLoader;
 use App\Templix\Templix;
 use App\Route\User;
 
+use App\Model\ValidationException;
+
 class Route extends FrontController{
 	use CallTrait;
 	protected $controllerNamespace = 'App\\Modules';
@@ -107,7 +109,12 @@ class Route extends FrontController{
 	}
 	function outputJson($params){
 		if($params=$this->findController(array_shift($params))){
-			$data = $this->controllerApi(array_shift($params));
+			try{
+				$data = $this->controllerApi(array_shift($params));
+			}
+			catch(ValidationException $e){
+				$data = $e;
+			}
 		}
 		else{
 			$data = ['error'=>404];

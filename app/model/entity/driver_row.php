@@ -4,6 +4,9 @@ use App\Model\EntityModel;
 use App\Modules\Drivers;
 //use App\Drivers;
 use App\Model\NormalizeTrait;
+
+use App\Model\ValidationException;
+
 class Driver_Row extends EntityModel{
 	use NormalizeTrait;
 	protected $validateProperties = [
@@ -52,7 +55,10 @@ class Driver_Row extends EntityModel{
 	
     function beforePut(){
 		if(!trim($this->email)){
-			throw new \Exception("le champs email est dorénavant obligatoire");
+			throw new ValidationException("le champs email est dorénavant obligatoire");
+		}
+		if($this->checkEmailExists($this->email)){
+			throw new ValidationException("Un chauffeur est déjà enregistré avec cet email");
 		}
     }
     function beforeRecursive(){}
@@ -74,7 +80,10 @@ class Driver_Row extends EntityModel{
     function afterUpdate(){}
     function afterDelete(){}
     function afterRecursive(){}
-
+	
+	function checkEmailExists($email){
+		return $this->db['driver']->unSelect()->select('id')->where('email = ?',[trim($email)])->getCell();
+	}
 
 
 

@@ -28,11 +28,10 @@ class Create extends AbstractController{
 		$this->table = clone $this->db['user'];
 		$this->table->where('user_id = ?',[$user->id]);
 	}
-	function store($user, Url $url){
-		$driver = $this->db->simpleEntity('driver',$user);
+	function store($data, Url $url){
+		$driver = $this->db->simpleEntity('driver',$data);
 		$driver->user_id = $this->user->id;
-		$this->db['user'][] = $user;
-		return $user->id?$user:false;
+		return $driver->store()->id;
 	}
 	function checkEmail($email,$compare=null){
 		if(!$this->table->exists()) return true;

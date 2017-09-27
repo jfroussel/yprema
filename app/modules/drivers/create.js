@@ -22,9 +22,12 @@ export default class extends Module {
 			submitHandler: function(){
 				$serviceJSON('drivers/create','store',[data.driver],function(r){
 					if(r.id){
+						$.notify('Le chauffeur a bien été créé', "success");
 						jstack.route('drivers/update',{id: r.id});
 					}
-                    $.notify('Le chauffeur a bien été créé', "success");
+					else{
+						$.notify('Erreur: '+r.error,'error');
+					}
 				});
 
 			},
