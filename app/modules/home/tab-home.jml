@@ -1,4 +1,3 @@
-
 <div class="container-fluid" style="padding-top: 20px">
     <h5>Bienvenue {{user.first_name}} {{user.last_name}}</h5>
     <p>Vous êtes connecté en tant que {{ user.email }}</p>
@@ -6,10 +5,10 @@
 
     <div class="row">
         <div class="col-md-6">
-            <h3 class="text-left">Saisir un nouveau passage pour la carte n° <span id="code"></span> </h3>
-            <h4 class="text-left"><span id="statut"></span> </h4>
+            <h3 class="text-left">Saisir un nouveau passage pour la carte n° {{passage.barcode}} </h3>
+            <h4 class="text-left">{{statut}} </h4>
             <div class="jumbotron">
-                <form  method="post" j-name="passage"  id="passage">
+                <form  method="post" j-name="passage" id="passage">
                     <div class="col-md-4">
                         <p class="c-black f-500 m-b-20">Carte de fidélité</p>
                         <input class="form-control" type="text" name="barcode" id="barcode" placeholder="scanner le code barre de la carte" required>
@@ -51,7 +50,7 @@
                             <address class="m-b-0 ng-binding">
                                 Entreprise : {{driver.entreprise==null?'non defini':driver.entreprise}}<br>
                                 {{driver.adresse==null?'non defini':driver.adresse}},<br>
-                                {{driver.cp==null?'non defini':driver.cp}} {{driver.ville==null?'non defini':driver.ville}},<br>
+                                {{driver.code_postal==null?'non defini':driver.code_postal}} {{driver.ville==null?'non defini':driver.ville}},<br>
                             </address>
                         </li>
                     </ul>
@@ -70,5 +69,3 @@
         </div>
     </div>
 </div>
-
-
