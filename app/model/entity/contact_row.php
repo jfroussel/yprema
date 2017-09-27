@@ -9,9 +9,7 @@ class Contact_Row extends EntityModel{
     
     protected $validateProperties = [
         'id',
-        'primary',
         'driver_id',
-        'driver_primary',
         'nom',
         'prenom',
         'role',
@@ -38,9 +36,6 @@ class Contact_Row extends EntityModel{
     function beforeRecursive(){}
     function beforeCreate(){
         $this->ctime = $this->now();
-        if(!$this->driver_primary && $this->driver_id){
-            $this->driver_primary = $this->db['driver'][$this->driver_id]->primary;
-        }
     }
     function beforeRead(){}
     function beforeUpdate(){

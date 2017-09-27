@@ -11,7 +11,7 @@ class Card_Row extends EntityModel{
 
 
     protected $validateProperties = [
-        'driver_primary',
+        'driver_id',
         'nom_client',
         'type_compte',
         'date_facture',

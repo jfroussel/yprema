@@ -1,5 +1,5 @@
 <?php
-namespace App\Modules\Users;
+namespace App\Modules\Drivers;
 
 use RedCat\Strategy\Di;
 use DateTime;
@@ -8,9 +8,6 @@ use App\Route\User;
 use RedCat\Route\Url;
 use RedCat\Route\Request;
 use App\Model\Db;
-use App\Modules\Auth\Auth;
-use RedCat\Identify\PHPMailer;
-use RedCat\Route\SilentProcess;
 
 use RedCat\Strategy\CallTrait;
 use RedCat\FileIO\Uploader;
@@ -31,7 +28,7 @@ class Create extends AbstractController{
 		$this->table = clone $this->db['user'];
 		$this->table->where('user_id = ?',[$user->id]);
 	}
-	function store($user, Url $url, SilentProcess $silentProcess, Auth $auth){
+	function store($user, Url $url){
 		$driver = $this->db->simpleEntity('driver',$user);
 		$driver->user_id = $this->user->id;
 		$this->db['user'][] = $user;

@@ -1,13 +1,13 @@
 <ol j-if="!breadcrumb" class="breadcrumb">
 	<li><a j-href="cards/all">Actions</a></li>
-	<li class="active">{{primary}}</li>
+	<li class="active">{{barcode}}</li>
 </ol>
 
 <section id="content">
     <div class="container-fluid">
         <div class="col-md-12">
             <div class="card-header">
-                <h4>Detail de l'action en  Référence : <b>{{ (typeof(primary)=='undefined'?'':primary) }}</b></h4>
+                <h4>Detail de l'action en  Référence : <b>{{ (typeof(barcode)=='undefined'?'':barcode) }}</b></h4>
                 <h5>Date de debut : <b>{{ date_debut}}</b></h5>
                 <h5>Date de fin : <b>{{ date_fin }}</b></h5>
                 <h5>A faire part : <b>{{ a_faire_part }}</b></h5>

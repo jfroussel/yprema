@@ -20,7 +20,7 @@
                         <hr>
                         <div>
                             <h5>Informations</h5>
-                            <b>ID vp :</b> {{ (primary==null?'non defini':primary) }} <br>
+                            <b>ID :</b> {{ (id==null?'non defini':id) }} <br>
                             <b>Siret :</b> {{ (siret==null?'non defini':siret) }} <br>
                             <b>Inscription :</b>{{ (date_de_creation==null?'non defini':date_de_creation) }}<br>
                             <b>Adresse :</b> {{ (adresse==null?'non defini':adresse) }} <br>
