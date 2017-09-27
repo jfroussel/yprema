@@ -27,7 +27,6 @@ class Contact_Row extends EntityModel{
         'comment',
         'active',
         'ctime',
-        'import_timestamp'
     ];
     
     function beforePut(){

@@ -40,7 +40,6 @@ class Card_Row extends EntityModel{
         'mtpr',
         'nb_litiges',
         'state',
-        'import_timestamp',
     ];
 
     protected $tauxBce = [
