@@ -42,6 +42,7 @@
 -->
                 <th data-column="card_statut" data-format="active" data-url="drivers/crud.json?method=storeStatut" data-css-class="toggler">statut</th>
                 <th data-column="date_creation" data-format="dateformat">date_delete</th>
+                <th data-action="edit" data-route="drivers/crud?id="></th>
             </tr>
             </thead>
             <tbody></tbody>
