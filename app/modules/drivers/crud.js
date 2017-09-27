@@ -1,33 +1,32 @@
-import 'validate';
-import 'notify-js';
-
 import Module from 'module';
+
+import 'validate';
+import 'chart.js';
+import moment from 'moment';
+
 export default class extends Module {
-	template(){ return require('./create-update.jml'); }
+	template(){ return require('./crud.jml'); }
+	
 	getData(){
+		var id = jstack.url.getParams(this.hash).id;
 		return [
-		
+			id ? $serviceJSON('drivers/crud','load', [id]) : {},
 		];
 	}
-	setData(){
-		let data = this.data;
-		data.driver = {
-			
-		};
-	}
+	
 	domReady(){
-		var data = this.data;
+       var data = this.data;
 		var form = $(this.element).find('form');
 		form.validate({
 			submitHandler: function(){
-				$serviceJSON('drivers/create','store',[data.driver],function(r){
+				$serviceJSON('drivers/crud','store',[data.driver],function(r){
 					if(r.error){
 						$.notify('Erreur: '+r.error,'error');
 					}
 					else{
 						$.notify('Le chauffeur a bien été créé', "success");
 						setTimeout(function(){
-							jstack.route('drivers/update',{id: r.id});
+							jstack.route('drivers/crud',{id: r.id});
 						},1000);
 					}
 				});
@@ -37,7 +36,7 @@ export default class extends Module {
 				email: {
 					email:true,
 					remote: {
-						url:'drivers/create.json',
+						url:'drivers/crud.json',
 						type:'post',
 						data: {
 							method:'checkEmail',
@@ -54,5 +53,6 @@ export default class extends Module {
 				}
 			}
 		});
+		
 	}
 };

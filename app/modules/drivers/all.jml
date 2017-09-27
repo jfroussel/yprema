@@ -6,7 +6,7 @@
     <div class="card">
 		
 		<div class="card-header ch-alt">
-			<div class="pull-right"><a j-href="drivers/create" class="btn btn-brown ">Ajouter un Chauffeur</a></div>
+			<div class="pull-right"><a j-href="drivers/crud" class="btn btn-brown ">Ajouter un Chauffeur</a></div>
 		</div>
         
         <h3>Liste des chauffeurs</h3>

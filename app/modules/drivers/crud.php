@@ -14,7 +14,7 @@ use RedCat\FileIO\Uploader;
 
 use App\AbstractController;
 
-class Create extends AbstractController{
+class Crud extends AbstractController{
 	
 	protected $needAuth = true;
 	
@@ -37,6 +37,12 @@ class Create extends AbstractController{
 		if(!$this->table->exists()) return true;
 		$id = $this->db['user']->select('id')->where('email = ?',[$email])->getCell();
 		return (!$id)||($compare&&$id==$compare);
+	}
+	
+	function load($id){	
+		return [
+            'driver' =>$this->db['driver'][$id],
+		];
 	}
 
 	
