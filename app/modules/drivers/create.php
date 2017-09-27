@@ -31,7 +31,7 @@ class Create extends AbstractController{
 	function store($data, Url $url){
 		$driver = $this->db->simpleEntity('driver',$data);
 		$driver->user_id = $this->user->id;
-		return $driver->store()->id;
+		return $driver->store();
 	}
 	function checkEmail($email,$compare=null){
 		if(!$this->table->exists()) return true;
