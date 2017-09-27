@@ -8,13 +8,9 @@ class Update extends AbstractController{
 	protected $needAuth = true;
 	
 	function load($id){	
-		$data = $this->db['driver'][$id]->getArray();
-		$data += [
-
-            'user' =>$this->db['user'][$this->user->id],
+		return [
+            'driver' =>$this->db['driver'][$id],
 		];
-        //ddj($data);
-		return $data;
 	}
 
 }

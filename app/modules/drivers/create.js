@@ -3,7 +3,7 @@ import 'notify-js';
 
 import Module from 'module';
 export default class extends Module {
-	template(){ return require('./create.jml'); }
+	template(){ return require('./create-update.jml'); }
 	getData(){
 		return [
 		
@@ -11,8 +11,8 @@ export default class extends Module {
 	}
 	setData(){
 		let data = this.data;
-		data.user = {
-			type:'saas',
+		data.driver = {
+			
 		};
 	}
 	domReady(){
@@ -21,12 +21,14 @@ export default class extends Module {
 		form.validate({
 			submitHandler: function(){
 				$serviceJSON('drivers/create','store',[data.driver],function(r){
-					if(r.id){
-						$.notify('Le chauffeur a bien été créé', "success");
-						jstack.route('drivers/update',{id: r.id});
+					if(r.error){
+						$.notify('Erreur: '+r.error,'error');
 					}
 					else{
-						$.notify('Erreur: '+r.error,'error');
+						$.notify('Le chauffeur a bien été créé', "success");
+						setTimeout(function(){
+							jstack.route('drivers/update',{id: r.id});
+						},1000);
 					}
 				});
 

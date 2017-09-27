@@ -3,7 +3,7 @@
 	<form j-name="driver">
 		
 		<div class="card-header ch-alt">
-			<h2>Ajouter un chauffeur</h2>
+			<h2>{{driver.id?'Éditer le chauffeur '+driver.id:'Ajouter un chauffeur'}}</h2>
 		</div>
 		<br>
 		
