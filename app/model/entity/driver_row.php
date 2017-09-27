@@ -19,10 +19,23 @@ class Driver_Row extends EntityModel{
 
 	];
 	protected $validateFilters = [
-		'use_interval'=>'bool',
+		
 	];
+	
+	function getDynamic(){
+        $this->dynamic->barcode = $this->db['card']
+			->unSelect()
+			->select('barcode')
+			->where('driver_id = ?',[$this->id])
+			->getCell();
+        
+        return (array)$this->dynamic;
+    }
+
+	
+	
     function beforePut(){
-		$this->normalizeDateFields();
+		
     }
     function beforeRecursive(){}
     function beforeCreate(){
