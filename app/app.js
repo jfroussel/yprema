@@ -36,7 +36,6 @@ let routes = {
     "parameters/sites/create": require("./modules/parameters/sites/create").default,
 
     "parameters/tab-parameters-home": require("./modules/parameters/tab-parameters-home").default,
-	"parameters/tab-files-import": require("./modules/parameters/tab-files-import").default,
 	"home/tab-folders": require("./modules/home/tab-folders").default,
 	"home/tab-home": require("./modules/home/tab-home").default,
 	"cards/update": require("./modules/cards/update").default,
