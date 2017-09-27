@@ -35,7 +35,11 @@ class Card_Row extends EntityModel{
 
     }
     function beforeDelete(){}
-    function afterPut(){}
+    function afterPut(){
+		if(isset($this->statut)){
+			$this->statut = $this->statut?1:0;
+		}
+	}
     function afterCreate(){}
     function afterRead(){
 

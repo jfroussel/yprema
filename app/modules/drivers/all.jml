@@ -37,7 +37,7 @@
                 <th data-column="solde_base">solde_base</th>
                 <th data-column="solde_bonus">solde_bonus</th>
                 <th data-column="site_creation">site creation</th>
-                <th data-column="statut">statut</th>
+                <th data-column="statut" data-format="active" data-url="drivers/crud.json?method=store" data-css-class="toggler">statut</th>
                 <th data-column="date_creation" data-format="dateformat">date_delete</th>
             </tr>
             </thead>

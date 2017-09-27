@@ -27,8 +27,10 @@ class Crud extends AbstractController{
 		$this->user = $user;
 	}
 	function store($data, Url $url){
+		if(!isset($data['id'])){
+			$data['user_id'] = $this->user->id;
+		}
 		$driver = $this->db->simpleEntity('driver',$data);
-		$driver->user_id = $this->user->id;
 		return $driver->store();
 	}
 	function checkEmail($email,$compare=null){

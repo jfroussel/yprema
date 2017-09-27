@@ -15,7 +15,6 @@ class All extends AbstractController{
         ];
     }
 
-
     protected function formatCurrency($number){
         return money_format('%#1n', $number );
     }

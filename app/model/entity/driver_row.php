@@ -57,6 +57,9 @@ class Driver_Row extends EntityModel{
 		if(!trim($this->email)){
 			throw new ValidationException("le champs email est dorénavant obligatoire");
 		}
+		if(isset($this->statut)){
+			$this->statut = $this->statut?1:0;
+		}
     }
     function beforeRecursive(){}
     function beforeCreate(){
