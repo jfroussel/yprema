@@ -18,6 +18,26 @@ export default class extends Module {
         var data = this.data;
 		var form = $(this.element).find('form');
 		let driver = data.driver;
+		
+		$('.notifyjs-corner').empty(); //clean notify js the hard way
+		
+		form.find('input[name=nom], input[name=prenom]').on('j:input',function(){
+			if(!(driver.nom&&driver.prenom)) return;
+			$serviceJSON('drivers/crud','checkFullNameExists',[driver.nom,driver.prenom],function(id){
+				if(id&&id!=driver.id){
+					$.notify('Un chauffeur avec les mêmes nom et prénom existe déjà, <a href="/#drivers/crud?id='+id+'">cliquez ici consulter sa fiche</a>',{autoHideDelay: 20000});
+				}
+			});
+		});
+		form.find('input[name=email]').on('j:input',function(){
+			if(!(driver.email)) return;
+			$serviceJSON('drivers/crud','checkEmailExists',[driver.email],function(id){
+				if(id&&id!=driver.id){
+					$.notify('Un chauffeur avec les mêmes nom et prénom existe déjà, <a href="/#drivers/crud?id='+id+'">cliquez ici consulter sa fiche</a>',{autoHideDelay: 20000});
+				}
+			});
+		});
+		
 		form.validate({
 			submitHandler: function(){
 				$serviceJSON('drivers/crud','store',[data.driver],function(r){

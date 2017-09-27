@@ -14,7 +14,8 @@ var alias = {
 	"formControlEnhance": "./js/jquery.formControlEnhance",
 	"app.datatables": "./app/directive/datatables",
 	"validate": "./app/adapters/validate",
-    "notify-js": "./vendor/bower-asset/notifyjs/dist/notify",
+    //"notify-js": "./vendor/bower-asset/notifyjs/dist/notify",
+    "notify-js": "./app/adapters/notifyjs-fork",
 };
 
 var dependencies = {		

@@ -25,8 +25,6 @@ class Crud extends AbstractController{
 		$this->db = $db;
 		$this->request = $request;
 		$this->user = $user;
-		$this->table = clone $this->db['user'];
-		$this->table->where('user_id = ?',[$user->id]);
 	}
 	function store($data, Url $url){
 		$driver = $this->db->simpleEntity('driver',$data);
@@ -34,9 +32,15 @@ class Crud extends AbstractController{
 		return $driver->store();
 	}
 	function checkEmail($email,$compare=null){
-		if(!$this->table->exists()) return true;
-		$id = $this->db['user']->select('id')->where('email = ?',[$email])->getCell();
+		$id = $this->db['driver']->checkEmailExists($email);
 		return (!$id)||($compare&&$id==$compare);
+	}
+	
+	function checkEmailExists($email){
+		return $this->db['driver']->checkEmailExists($email);
+	}
+	function checkFullNameExists($nom,$prenom){
+		return $this->db['driver']->checkFullNameExists($nom,$prenom);
 	}
 	
 	function load($id){	

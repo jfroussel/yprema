@@ -80,10 +80,7 @@ class Driver_Row extends EntityModel{
     function afterDelete(){}
     function afterRecursive(){}
 	
-	function checkEmailExists($email){
-		return $this->db['driver']->unSelect()->select('id')->where('email = ?',[trim($email)])->getCell();
-	}
-
+	
 
 
 
