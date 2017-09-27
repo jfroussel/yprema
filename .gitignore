@@ -1,7 +1,5 @@
 # Project Specific
 /dist
-/esker
-/.data
 /content
 /composer.lock
 /node_modules
