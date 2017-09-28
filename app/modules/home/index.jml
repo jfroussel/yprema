@@ -1,0 +1,7 @@
+<div>
+    <div class="container-fluid">
+        <a j-href="passages/create" class="btn btn-primary">Ajouter un passage</a>
+        <a j-href="drivers/all" class="btn btn-primary">Liste des Chauffeurs</a>
+        <a j-href="drivers/crud" class="btn btn-primary">Ajouter un Chauffeur</a>
+    </div>
+</div>

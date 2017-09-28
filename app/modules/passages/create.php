@@ -1,5 +1,5 @@
 <?php
-namespace App\Modules\Home;
+namespace App\Modules\Passages;
 use App\AbstractController;
 use App\Model\Entity\Passage_Table;
 use DateTime;
@@ -7,7 +7,7 @@ use DateInterval;
 
 
 
-class TabHome extends AbstractController{
+class Create extends AbstractController{
 	protected $needAuth = true;
    
     function load(){

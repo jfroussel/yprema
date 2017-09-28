@@ -2,7 +2,7 @@ import Module from "module";
 
 export default class extends Module {
 	template(){
-		return require('./home/saas.jml');
+		return require('./home/index.jml');
 	}
 	getData(){
 		return [

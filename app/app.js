@@ -29,11 +29,8 @@ let routes = {
 	
 	"users/create": require("./modules/users/create").default,
 	
-	"home/saas": require("./modules/home/saas").default,
-	"home/tab-actions": require("./modules/home/tab-actions").default,
+	"passages/create": require("./modules/passages/create").default,
     
-	"home/tab-folders": require("./modules/home/tab-folders").default,
-	"home/tab-home": require("./modules/home/tab-home").default,
 	"drivers/crud": require("./modules/drivers/crud").default,
 	"history/update": require("./modules/history/update").default,
 	

@@ -4,10 +4,10 @@ import 'notify-js';
 
 import Module from 'module';
 export default class extends Module {
-	template(){ return require('./tab-home.jml'); }
+	template(){ return require('./create.jml'); }
     getData(){
         return [
-            $serviceJSON('home/tab-home','load'),
+            $serviceJSON('passages/create','load'),
         ];
 
     }
@@ -36,7 +36,7 @@ export default class extends Module {
 			let barcodeVal = barcode.val();
 			if(barcodeVal){
 			
-				$serviceJSON('home/tab-home','getChauffeurInfo',[barcodeVal], function(r){
+				$serviceJSON('passages/create','getChauffeurInfo',[barcodeVal], function(r){
 					
 					let driver = data.driver = r || {};
 					data.statut = driver.id?"Carte crée le " + moment(driver.date_creation).format('DD/MM/YYYY') + " son statut est  " + driver.statut:'';
@@ -67,7 +67,7 @@ export default class extends Module {
         var form = $(this.element).find('form');
         form.validate({
             submitHandler: function(e){
-                $serviceJSON('home/tab-home','store',[data.passage],function(r){
+                $serviceJSON('passages/create','store',[data.passage],function(r){
                     if($('#passage').length){
                         $.notify('Le passage a bien été enregistré avec la carte n°' + data.passage.barcode, "success");
                     }
