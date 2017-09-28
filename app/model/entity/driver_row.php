@@ -99,6 +99,8 @@ class Driver_Row extends EntityModel{
     }
     function beforeRecursive(){}
     function beforeCreate(){
+		$this->date_creation = date('Y-m-d');
+		$this->site_creation = $this->db['user'][$this->_user->id]->site;
     }
 
     function beforeRead(){
