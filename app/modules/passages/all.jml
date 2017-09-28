@@ -1,7 +1,9 @@
-<ol class="breadcrumb">
-	<li class="active"><a>Actions</a></li>
-</ol>
 <div class="card">
+	
+	<div class="card-header ch-alt">
+		<div class="pull-right"><a j-href="passages/create" class="btn btn-brown ">Ajouter un passage</a></div>
+	</div>
+	
     <div class="card">
         <h3>Passages enregistrés</h3>
         <table
