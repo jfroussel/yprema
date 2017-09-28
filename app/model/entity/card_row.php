@@ -13,7 +13,6 @@ class Card_Row extends EntityModel{
         'barcode',
         'solde_base',
         'solde_bonus',
-        'solde_total',
         'statut',
         'site_creation',
     ];
@@ -23,8 +22,11 @@ class Card_Row extends EntityModel{
 		if(isset($this->statut)){
 			$this->statut = $this->statut?1:0;
 		}
-		if(isset($this->solde_total)){
-			$this->solde_total = (int)$this->solde_total;
+		if(isset($this->solde_base)){
+			$this->solde_base = (int)$this->solde_base;
+		}
+		if(isset($this->solde_bonus)){
+			$this->solde_bonus = (int)$this->solde_bonus;
 		}
     }
     function beforeRecursive(){

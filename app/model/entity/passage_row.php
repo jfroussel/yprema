@@ -18,6 +18,7 @@ class Passage_Row extends EntityModel{
         'user_id',
         'card_id',
         'driver_id',
+        'points',
     ];
 
     function beforePut(){ }
@@ -39,7 +40,8 @@ class Passage_Row extends EntityModel{
         $article = $this->db['article'][$this->article_id];
         $this->article_designation = $article->designation;
         
-        $card->solde_total = (int)$card->solde_total + (int)$article->nb_points_basique;
+        $this->points = $article->nb_points_basique;
+        $card->solde_base = (int)$card->solde_base + (int)$article->nb_points_basique;
         $card->store();
     }
     function beforeRead(){}

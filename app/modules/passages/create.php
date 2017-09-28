@@ -23,12 +23,34 @@ class Create extends AbstractController{
 	}
 
     function store($data){
-        return $this->db['passage']->simpleEntity($data)->store();
+		$barcode = $data['barcode'];
+		if(!$barcode) return;
+		
+		$driver = $this->getDriverByBarcode($barcode);
+		
+		if(!$driver) return;
+		
+		$this->db['passage']->simpleEntity($data)->store();
+        
+        return [
+			'solde_base'=>$driver->getSoldeBase() ? : '0',
+		];
     }
-
-    function getChauffeurInfo($data){
-        $rq = $this->db->getRow('SELECT driver.*,card.statut FROM driver,card WHERE card.barcode = ? AND card.driver_id = driver.id', [$data]);
-        return $rq;
+	
+	protected function getDriverByBarcode($barcode){
+		$row = $this->db->getRow('SELECT driver.*,card.statut FROM driver,card WHERE card.barcode = ? AND card.driver_id = driver.id', [$barcode]);
+		if($row){
+			$row = $this->db->simpleEntity('driver',$row);
+		}
+        return $row;
+	}
+    function getChauffeurInfo($barcode){
+        $driver = $this->getDriverByBarcode($barcode);
+        if(!$driver) return;
+        return [
+			'driver'=>$driver,
+			'solde_base'=>$driver->getSoldeBase() ? : '0',
+		];
     }
 
 

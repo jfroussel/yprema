@@ -39,7 +39,7 @@
                         <li><i class="zmdi zmdi-account"></i>{{driver.prenom==null?'non defini':driver.prenom}}</li>
                         <li><i class="zmdi zmdi-phone"></i>{{driver.portable==null?'non defini':driver.portable}}</li>
                         <li><i class="zmdi zmdi-email"></i>{{driver.email==null?'non defini':driver.email}}</li>
-                        <li><i class="zmdi zmdi-info"></i>Gestion des points : Solde de base {{driver.solde_base==null?'non defini':driver.solde_base}} /  Solde bonus {{driver.solde_bonus==null?'non defini':driver.solde_bonus}}</li>
+                        <li><i class="zmdi zmdi-info"></i>Solde de Base : {{solde_base}}</li>
                         <li>
                             <i class="zmdi zmdi-pin"></i>
                             <address class="m-b-0 ng-binding">

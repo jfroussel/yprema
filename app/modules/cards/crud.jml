@@ -21,9 +21,18 @@
 			<div class="row">
 				<div class="form-group fg-float">
 					<div class="fg-line">
-						<input type="text" name="solde_total" value="" class="form-control">
+						<input type="text" name="solde_base" value="" class="form-control">
 					</div>
-					<label class="fg-label">Solde</label>
+					<label class="fg-label">Solde de Base</label>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="form-group fg-float">
+					<div class="fg-line">
+						<input type="text" name="solde_bonus" value="" class="form-control">
+					</div>
+					<label class="fg-label">Solde Bonus</label>
 				</div>
 			</div>
 			

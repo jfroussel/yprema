@@ -14,6 +14,7 @@ export default class extends Module {
     setData(json){
         $.extend(this.data,json);
         var data = this.data;
+        data.solde_base = '';
         data.driver = {};
         data.statut = '';
         data.passage = {
@@ -37,7 +38,11 @@ export default class extends Module {
 			
 				$serviceJSON('passages/create','getChauffeurInfo',[passage.barcode], function(r){
 					
-					let driver = data.driver = r || {};
+					if(!r) return;
+					
+					let driver = data.driver;
+					$.extend(driver, r.driver || {});
+					data.solde_base = r.solde_base;
 					data.statut = driver.id?"Carte crée le " + moment(driver.date_creation).format('DD/MM/YYYY') + " son statut est  " + (driver.statut=='1'?'actif':'inactif'):'';
 					
 					if(driver.id){
