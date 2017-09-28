@@ -1,7 +1,27 @@
 <div>
     <div class="container-fluid">
-        <a j-href="passages/create" class="btn btn-primary">Ajouter un passage</a>
-        <a j-href="drivers/all" class="btn btn-primary">Liste des Chauffeurs</a>
-        <a j-href="drivers/crud" class="btn btn-primary">Ajouter un Chauffeur</a>
+        
+        <ul style="list-style-type:none;">
+			<li>
+				<a j-href="passages/create" class="btn btn-primary">Ajouter un passage</a>
+			</li>
+			<li>
+				<a j-href="drivers/crud" class="btn btn-primary">Ajouter un Chauffeur</a>
+			</li>
+			<li>
+				<a j-href="cards/crud" class="btn btn-primary">Ajouter une Carte de Fidélité</a>
+			</li>
+			<li>
+				<a j-href="passages/all" class="btn btn-primary">Liste des passage</a>
+			</li>
+			<li>
+				<a j-href="drivers/all" class="btn btn-primary">Liste des Chauffeurs</a>
+			</li>
+			<li>
+				<a j-href="cards/all" class="btn btn-primary">Liste des Cartes de Fidélité</a>
+			</li>
+		</ul>
+        
+        
     </div>
 </div>
