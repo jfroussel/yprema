@@ -24,7 +24,7 @@ export default class extends Module {
 
         var self = this;
         var data = self.data;
-
+		let passage = data.passage;
 
 
         // var element = self.element;
@@ -32,14 +32,13 @@ export default class extends Module {
         inputBarcode.focus();
 
         let barcode = $("#barcode");
-		barcode.on('input',function(){
-			let barcodeVal = barcode.val();
-			if(barcodeVal){
+		barcode.on('j:input',function(){
+			if(passage.barcode){
 			
-				$serviceJSON('passages/create','getChauffeurInfo',[barcodeVal], function(r){
+				$serviceJSON('passages/create','getChauffeurInfo',[passage.barcode], function(r){
 					
 					let driver = data.driver = r || {};
-					data.statut = driver.id?"Carte crée le " + moment(driver.date_creation).format('DD/MM/YYYY') + " son statut est  " + driver.statut:'';
+					data.statut = driver.id?"Carte crée le " + moment(driver.date_creation).format('DD/MM/YYYY') + " son statut est  " + (driver.statut=='1'?'actif':'inactif'):'';
 					
 					if(driver.id){
 						$("#success").show();

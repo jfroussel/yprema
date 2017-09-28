@@ -27,7 +27,7 @@ class Create extends AbstractController{
     }
 
     function getChauffeurInfo($data){
-        $rq = $this->db->getRow('SELECT driver.* FROM driver,card WHERE card.barcode = ? AND card.driver_id = driver.id', [$data]);
+        $rq = $this->db->getRow('SELECT driver.*,card.statut FROM driver,card WHERE card.barcode = ? AND card.driver_id = driver.id', [$data]);
         return $rq;
     }
 
