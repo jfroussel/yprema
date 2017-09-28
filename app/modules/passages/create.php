@@ -15,7 +15,6 @@ class Create extends AbstractController{
         $article = $this->db['article'];
         $site = $this->db['site'];
 		$data = [
-            'user'=>$this->db['user'][$this->user->id],
             'articles' => $article,
             'sites' => $site,
 		];
