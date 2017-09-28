@@ -29,9 +29,9 @@
 						<li>
 							<a href="#users/all"><i class="zmdi zmdi-accounts"></i> Utilisateurs</a>
 						</li>
-						<li><a class="active" href="#sites/all"><i class="zmdi zmdi-home"></i> Sites</a></li>
-						<li><a class="active" href="#articles/all"><i class="zmdi zmdi-home"></i> Matériaux</a></li>
-						<li><a class="active" href="#gifts/all"><i class="zmdi zmdi-home"></i> Cadeaux</a></li>
+						<li><a class="active" href="#sites/all"><i class="zmdi zmdi-map"></i> Sites</a></li>
+						<li><a class="active" href="#articles/all"><i class="zmdi zmdi-layers"></i> Matériaux</a></li>
+						<li><a class="active" href="#gifts/all"><i class="zmdi zmdi-card-giftcard"></i> Cadeaux</a></li>
 					</if>
 					<li>
 						<a href="auth/logout"><i class="zmdi zmdi-time-restore"></i> Deconnexion</a>
@@ -43,9 +43,9 @@
 				<li class="active"><a href="#"><i class="zmdi zmdi-home"></i> Accueil</a></li>
 
 				
-				<li><a class="active" href="#drivers/all"><i class="zmdi zmdi-home"></i> Chauffeurs</a></li>
-				<li><a class="active" href="#cards/all"><i class="zmdi zmdi-home"></i> Cartes de fidelité</a></li>
-				<li><a class="active" href="#passages/all"><i class="zmdi zmdi-home"></i> Passages</a></li>
+				<li><a class="active" href="#drivers/all"><i class="zmdi zmdi-face"></i> Chauffeurs</a></li>
+				<li><a class="active" href="#cards/all"><i class="zmdi zmdi-card"></i> Cartes de fidelité</a></li>
+				<li><a class="active" href="#passages/all"><i class="zmdi zmdi-truck"></i> Passages</a></li>
 				
 			</ul>
 		</div>
