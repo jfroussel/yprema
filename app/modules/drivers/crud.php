@@ -67,9 +67,11 @@ class Crud extends AbstractController{
 		return $card->store();
 	}
 	
-	function load($id){	
+	function load($id){
+		$driver = $this->db['driver'][$id];
+		$driver['barcode'] = $driver->getBarcode();
 		return [
-            'driver' =>$this->db['driver'][$id],
+            'driver' => $driver,
 		];
 	}
 
