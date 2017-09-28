@@ -34,7 +34,7 @@
 						<li><a class="active" href="#gifts/all"><i class="zmdi zmdi-card-giftcard"></i> Cadeaux</a></li>
 					</if>
 					<li>
-						<a href="auth/logout"><i class="zmdi zmdi-time-restore"></i> Deconnexion</a>
+						<a href="auth/logout"><i class="zmdi zmdi-power"></i> Deconnexion</a>
 					</li>
 				</ul>
 			</div>
