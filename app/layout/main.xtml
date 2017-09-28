@@ -11,7 +11,7 @@ $user = $redcat(App\Route\User::class);
 <html lang="fr">
 <head>
 	<meta charset="utf-8">
-	<title>desico.Sprint-CRM</title>
+	<title>Sprint-CRM</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="google-site-verification" content="kY2dtAHc3JIED3mLYo9pqRK8mGxgRbMy9Gaw-RQy0mE"/>
@@ -50,7 +50,6 @@ $user = $redcat(App\Route\User::class);
 	<link href="css/parameters.css" rel="stylesheet" type="text/css">
 	<link href="css/validation.css" rel="stylesheet" type="text/css">
 	<link href="css/scenario.css" rel="stylesheet" type="text/css">
-	<link href="css/mycreance.css" rel="stylesheet" type="text/css">
     <link href="css/fullcalendar.min.css" rel="stylesheet" type="text/css">
 
     <link href="node_modules/owl.carousel/dist/assets/owl.carousel.css" rel="stylesheet" type="text/css">
