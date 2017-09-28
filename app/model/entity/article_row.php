@@ -1,10 +1,7 @@
 <?php
 namespace App\Model\Entity;
 use App\Model\EntityModel;
-use App\Model\HistorizeTrait;
 class Article_Row extends EntityModel{
-    use HistorizeTrait;
-
     protected $validateProperties = [
 		'code',
 		'designation',
@@ -28,7 +25,7 @@ class Article_Row extends EntityModel{
     function beforeDelete(){}
     function afterPut(){}
     function afterCreate(){
-        $this->historize();
+
     }
     function afterRead(){}
     function afterUpdate(){}

@@ -1,9 +1,7 @@
 <?php
 namespace App\Model\Entity;
 use App\Model\EntityModel;
-use App\Model\HistorizeTrait;
 class Passage_Row extends EntityModel{
-    use HistorizeTrait;
 
     protected $validateProperties = [
         'id',

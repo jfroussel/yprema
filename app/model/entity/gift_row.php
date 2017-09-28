@@ -1,12 +1,13 @@
 <?php
 namespace App\Model\Entity;
 use App\Model\EntityModel;
-use App\Model\HistorizeTrait;
 class Gift_Row extends EntityModel{
-    use HistorizeTrait;
 
     protected $validateProperties = [
-
+		'description',
+		'nb_points',
+		'code',
+		'stock',
     ];
 
     function beforePut(){ }
@@ -16,7 +17,13 @@ class Gift_Row extends EntityModel{
     }
     function beforeRead(){}
     function beforeUpdate(){
-        $this->mtime = $this->now();
+		
+		if(isset($this->nb_points)){
+			$this->nb_points = (int)$this->nb_points;
+		}
+		if(isset($this->stock)){
+			$this->stock = (int)$this->stock;
+		}
     }
     function beforeDelete(){}
     function afterPut(){}
