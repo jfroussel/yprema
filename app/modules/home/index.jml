@@ -8,9 +8,11 @@
 			<li>
 				<a j-href="drivers/crud" class="btn btn-primary">Ajouter un Chauffeur</a>
 			</li>
+<!--
 			<li>
 				<a j-href="cards/crud" class="btn btn-primary">Ajouter une Carte de Fidélité</a>
 			</li>
+-->
 			<li>
 				<a j-href="passages/all" class="btn btn-primary">Liste des passage</a>
 			</li>

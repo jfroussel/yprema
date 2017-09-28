@@ -1,0 +1,66 @@
+<div class="container-fluid" style="padding-top: 20px">
+    <div class="row">
+        <div class="col-md-6">
+            <h3 class="text-left">Délivrer un cadeau </h3>
+            <h4 class="text-left">{{statut}} </h4>
+            <div class="jumbotron">
+                <form  method="post" j-name="delivery" id="delivery">
+                    <div class="col-md-4">
+                        <p class="c-black f-500 m-b-20">Carte de fidélité</p>
+                        <input class="form-control" type="text" name="barcode" id="barcode" placeholder="scanner le code barre de la carte" required>
+                    </div>
+                    <div class="col-md-8" id="type-article">
+                        <p class="c-black f-500 m-b-20">Type d'article</p>
+                        <div class="fg-line">
+                            <div class="select">
+                                <select  class="form-control"  name="article" autocomplete="off" required>
+                                    <option value="" disabled selected>Choisir un article...</option>
+                                    <option j-for="gift in gifts" :value="{{gift.designation}}">{{gift.code}} - {{gift.description}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <hr>
+                    </div>
+
+                    <div class="col-md-12 text-left">
+                        <p>
+                            <button type="submit" class="btn btn-lg btn-primary">Valider la remise de cadeau</button>
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="" id="success" style="display:none">
+                <div class="pmo-block pmo-contact hidden-xs">
+                    <h4>informations chauffeur</h4>
+                    <ul>
+                        <li><i class="zmdi zmdi-account"></i>{{driver.nom==null?'non defini':driver.nom}}</li>
+                        <li><i class="zmdi zmdi-account"></i>{{driver.prenom==null?'non defini':driver.prenom}}</li>
+                        <li><i class="zmdi zmdi-phone"></i>{{driver.portable==null?'non defini':driver.portable}}</li>
+                        <li><i class="zmdi zmdi-email"></i>{{driver.email==null?'non defini':driver.email}}</li>
+                        <li><i class="zmdi zmdi-info"></i>Solde de base: {{solde_base}}</li>
+                        <li>
+                            <i class="zmdi zmdi-pin"></i>
+                            <address class="m-b-0 ng-binding">
+                                Entreprise : {{driver.entreprise==null?'non defini':driver.entreprise}}<br>
+                                {{driver.adresse==null?'non defini':driver.adresse}},<br>
+                                {{driver.code_postal==null?'non defini':driver.code_postal}} {{driver.ville==null?'non defini':driver.ville}},<br>
+                            </address>
+                        </li>
+                    </ul>
+                </div>
+                <p><button class="btn btn-lg btn-success" id="actualise" style="display:none">Carte perimée !  reactualisez la page</button></p>
+            </div>
+        </div>
+
+    </div>
+    <hr>
+    <div class="col-md-12">
+        <div class="" id="delivery-message" style="display:none">
+            <div class="pmo-block pmo-contact hidden-xs">
+                <h3>La remise de cadeau a bien été enregistré</h3>
+            </div>
+        </div>
+    </div>
+</div>
