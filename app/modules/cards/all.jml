@@ -1,8 +1,10 @@
 <div class="card">
 	
+<!--
 	<div class="card-header ch-alt">
 		<div class="pull-right"><a j-href="cards/crud" class="btn btn-brown ">Ajouter une Carte</a></div>
 	</div>
+-->
 	
 	<h3>Cartes de fidélité</h3>
 	<table

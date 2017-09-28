@@ -18,6 +18,17 @@
 				</div>
 			</div>
 			
+<!--
+			<div class="row">
+				<div class="form-group">
+					<label>Chauffeur</label>
+					<select name="driver_id" required>
+						<option :value="{{card.driver_id}}">{{card.driver_label}}</option>
+					</select>
+				</div>
+			</div>
+-->
+			
 			<div class="row">
 				<div class="form-group fg-float">
 					<div class="fg-line">

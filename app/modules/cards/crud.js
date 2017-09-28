@@ -3,6 +3,7 @@ import Module from 'module';
 import 'validate';
 import 'chart.js';
 import moment from 'moment';
+import 'select2';
 
 export default class extends Module {
 	template(){ return require('./crud.jml'); }
@@ -20,7 +21,30 @@ export default class extends Module {
 		let card = data.card;
 		
 		$('.notifyjs-corner').empty(); //clean notify js the hard way
-				
+		
+		let driverId = form.find('select[name=driver_id]');
+		
+		driverId.select2({
+			placeholder: 'Sélectionnez un chauffeur',
+			minimumInputLength: 1,
+			ajax: {
+				url: "cards/crud",
+				dataType: 'json',
+				data: function (term, page) {
+					return {
+						method: 'select2Driver',
+						params: [term],
+					};
+				},
+				results: function (data, page) {
+					return {
+						results: data,
+						more: false
+					};
+				}
+			},
+		});
+			
 		form.validate({
 			submitHandler: function(){
 				$serviceJSON('cards/crud','store',[data.card],function(r){
@@ -44,6 +68,7 @@ export default class extends Module {
 			},
 			rules:{
 				barcode: {
+					required: true,
 					remote: {
 						url:'cards/crud.json',
 						type:'post',
@@ -54,11 +79,14 @@ export default class extends Module {
 							}
 						}
 					}
-				}
+				},
 			},
 			messages:{
 				barcode: {
 					remote: "Ce code barre est déjà utilisé",
+				},
+				driver_id:{
+					required: "Le chauffeur est requis",
 				}
 			}
 		});

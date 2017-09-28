@@ -25,12 +25,16 @@ class Crud extends AbstractController{
 		$this->user = $user;
 	}
 	function store($data, Url $url){
+		dd($data);
 		return $this->db->simpleEntity('card',$data)->store();
 	}
 	
-	function load($id){	
+	function load($id){
+		$card = $this->db['card'][$id];
+		$driver = $this->db['driver'][$card->driver_id];
+		$card['driver_label'] = implode(' ',[$driver->prenom,$driver->nom,$driver->email]);
 		return [
-            'card' =>$this->db['card'][$id],
+            'card' =>$card,
 		];
 	}
 	
@@ -39,6 +43,29 @@ class Crud extends AbstractController{
 		if(!$barcode) return true;
 		$id = $this->db['card']->unSelect()->select('id')->where('barcode = ?',[$barcode])->getCell();
 		return (!$id)||($compare&&$id==$compare);
+	}
+	
+	function select2Driver($term){
+		//$this->db->debug();
+		$q = $this->db['driver']->unSelect()->select('id, nom, prenom, email');
+		$q->openWhereOr();
+		$q
+			->likeBoth('nom',$term)
+			->likeBoth('prenom',$term)
+			->likeBoth('email',$term)
+		;
+		$q->closeWhere();
+		$q->limit(10);
+		$rows = $q->getAll();
+		$r = [];
+		foreach($rows as $row){
+			$label = implode(' ',[$row->prenom,$row->nom,$row->email]);
+			$r[] = [
+				'id'=>$row->id,
+				'text'=>$label,
+			];
+		}
+		return $r;
 	}
 	
 }
