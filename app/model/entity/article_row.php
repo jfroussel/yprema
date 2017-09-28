@@ -6,10 +6,17 @@ class Article_Row extends EntityModel{
     use HistorizeTrait;
 
     protected $validateProperties = [
-
+		'code',
+		'designation',
+		'mouvement',
+		'nb_points_basique',
     ];
 
-    function beforePut(){ }
+    function beforePut(){
+		if(isset($this->nb_points_basique)){
+			$this->nb_points_basique = (int)$this->nb_points_basique;
+		}
+	}
     function beforeRecursive(){}
     function beforeCreate(){
         $this->ctime = $this->now();

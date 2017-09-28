@@ -1,0 +1,29 @@
+<div class="card">
+	
+	<div class="card-header ch-alt">
+		<div class="pull-right"><a j-href="articles/crud" class="btn btn-brown ">Ajouter un matériau</a></div>
+	</div>
+	
+	<h3>Matériaux</h3>
+	<table
+		is="datatables"
+		j-data-ajax--url="plugins/datatables.json?table=article"
+		j-data-paging="true"
+		j-data-scroll-y="458px"
+		j-data-scroll-X="2000px"
+		id="cards-table"
+		class="table table-striped table-bordered"
+	>
+		<thead>
+		<tr style="font-size: 10px">
+			<th data-column="id" data-visible="false">id</th>
+			<th data-column="code">CODE</th>
+			<th data-column="designation">Désignation</th>
+			<th data-column="mouvement">Mouvement</th>
+			<th data-column="nb_points_basique">Nombre de points</th>
+			<th data-action="edit" data-route="articles/crud?id="></th>
+		</tr>
+		</thead>
+		<tbody></tbody>
+	</table>
+</div>
