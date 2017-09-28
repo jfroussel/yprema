@@ -15,7 +15,12 @@ import './adapters/nicescroll';
 let routes = {
 	"": require("./modules/index").default,
 
-	"contacts/all": require("./modules/contacts/all").default,
+	"articles/all": require("./modules/articles/all").default,
+	"articles/crud": require("./modules/articles/crud").default,
+	
+	"gifts/all": require("./modules/gifts/all").default,
+	"gifts/crud": require("./modules/gifts/crud").default,
+	
 	"cards/all": require("./modules/cards/all").default,
 	"cards/crud": require("./modules/cards/crud").default,
 	"drivers/all": require("./modules/drivers/all").default,
@@ -24,19 +29,9 @@ let routes = {
 	
 	"users/create": require("./modules/users/create").default,
 	
-	"parameters/parameters": require("./modules/parameters/parameters").default,
 	"home/saas": require("./modules/home/saas").default,
 	"home/tab-actions": require("./modules/home/tab-actions").default,
-	
-	"parameters/articles/all": require("./modules/parameters/articles/all").default,
-    "parameters/articles/update": require("./modules/parameters/articles/update").default,
-    "parameters/articles/create": require("./modules/parameters/articles/create").default,
-
-    "parameters/sites/all": require("./modules/parameters/sites/all").default,
-    "parameters/sites/update": require("./modules/parameters/sites/update").default,
-    "parameters/sites/create": require("./modules/parameters/sites/create").default,
-
-    "parameters/tab-parameters-home": require("./modules/parameters/tab-parameters-home").default,
+    
 	"home/tab-folders": require("./modules/home/tab-folders").default,
 	"home/tab-home": require("./modules/home/tab-home").default,
 	"drivers/crud": require("./modules/drivers/crud").default,

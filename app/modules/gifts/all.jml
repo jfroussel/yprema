@@ -1,0 +1,29 @@
+<div class="card">
+	
+	<div class="card-header ch-alt">
+		<div class="pull-right"><a j-href="gifts/crud" class="btn btn-brown ">Ajouter un cadeau</a></div>
+	</div>
+	
+	<h3>Cadeaux</h3>
+	<table
+		is="datatables"
+		j-data-ajax--url="plugins/datatables.json?table=gift"
+		j-data-paging="true"
+		j-data-scroll-y="458px"
+		j-data-scroll-X="2000px"
+		id="gifts-table"
+		class="table table-striped table-bordered"
+	>
+		<thead>
+		<tr style="font-size: 10px">
+			<th data-column="id" data-visible="false">id</th>
+			<th data-column="code">CODE</th>
+			<th data-column="description">Description</th>
+			<th data-column="nb_points">Nombre de points</th>
+			<th data-column="stock">stock</th>
+			<th data-action="edit" data-route="gifts/crud?id="></th>
+		</tr>
+		</thead>
+		<tbody></tbody>
+	</table>
+</div>
