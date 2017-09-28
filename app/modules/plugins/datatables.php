@@ -10,39 +10,12 @@ class Datatables extends AbstractController{
 	function __invoke(){
         $tableName = $this->request->table;
         $db = $this->db;
-        switch($this->user->type){
-            case 'lead':
-               $db = $this->mainDb;
-                break;
-        }
-		if($this->user->is_superroot){
-		    switch($tableName){
-                case 'lead':
-                $db = $this->mainDb;
-                break;
-            }
-        }
 
 		$table = clone $db[$tableName];
 		
 		if(!$table->exists()){
 			return false;
 		}
-		
-		//$db->debug();
-        switch($this->user->type){
-            case 'lead':
-                switch($tableName){
-                    case 'lead':
-                    case 'lead_invoice':
-                        $table->where('user_id = ?', [$this->user->id]);
-                        break;
-                    default:
-                        throw new InvalidArgumentException('Access to this table is not allowed for lead');
-                        break;
-                }
-                break;
-        }
 		
 		$where = [];
 		foreach($this->request as $k=>$v){
