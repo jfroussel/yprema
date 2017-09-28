@@ -3,7 +3,7 @@
 	<form j-name="article">
 		
 		<div class="card-header ch-alt">
-			<h2>{{card.id?'Éditer la carte de fidélité '+card.barcode:'Ajouter une carte de fidélité'}}</h2>
+			<h2>{{article.id?'Éditer le matériau '+article.code:'Ajouter un matériau'}}</h2>
 		</div>
 		<br>
 		

@@ -30,10 +30,10 @@ export default class extends Module {
 					else{
 						$.extend(article,r.article);
 						if(article.id){
-							$.notify('La carte a bien été mis à jour', "success");
+							$.notify('Le matériau a bien été mis à jour', "success");
 						}
 						else{
-							$.notify('La carte a bien été créé', "success");
+							$.notify('Le matériau a bien été créé', "success");
 						}
 						setTimeout(function(){
 							jstack.route('articles/crud',{id: r.id});
@@ -42,25 +42,6 @@ export default class extends Module {
 				});
 
 			},
-			rules:{
-				barcode: {
-					remote: {
-						url:'articles/crud.json',
-						type:'post',
-						data: {
-							method:'checkBarcode',
-							params:function(){
-								return [form.find('input[name=barcode]').val(), data.article.id];
-							}
-						}
-					}
-				}
-			},
-			messages:{
-				barcode: {
-					remote: "Ce code barre est déjà utilisé",
-				}
-			}
 		});
 		
 	}

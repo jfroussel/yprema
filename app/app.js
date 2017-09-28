@@ -21,6 +21,9 @@ let routes = {
 	"gifts/all": require("./modules/gifts/all").default,
 	"gifts/crud": require("./modules/gifts/crud").default,
 	
+	"sites/all": require("./modules/sites/all").default,
+	"sites/crud": require("./modules/sites/crud").default,
+	
 	"cards/all": require("./modules/cards/all").default,
 	"cards/crud": require("./modules/cards/crud").default,
 	"drivers/all": require("./modules/drivers/all").default,

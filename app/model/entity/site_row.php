@@ -1,12 +1,11 @@
 <?php
 namespace App\Model\Entity;
 use App\Model\EntityModel;
-class Sites_Row extends EntityModel{
+class Site_Row extends EntityModel{
 
     protected $validateProperties = [
-        'ctime',
         'code',
-        'description',
+        'libelle',
     ];
 
     function beforePut(){ }

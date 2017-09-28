@@ -1,0 +1,38 @@
+<div class="container">
+    
+	<form j-name="site">
+		
+		<div class="card-header ch-alt">
+			<h2>{{site.id?'Éditer le site '+site.code:'Ajouter un site'}}</h2>
+		</div>
+		<br>
+		
+		<div class="card-body card-padding">
+			
+			<div class="row">
+				<div class="form-group fg-float">
+					<div class="fg-line">
+						<input type="text" name="code" value="" class="form-control">
+					</div>
+					<label class="fg-label">Code</label>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="form-group fg-float">
+					<div class="fg-line">
+						<input type="text" name="libelle" value="" class="form-control">
+					</div>
+					<label class="fg-label">Libellé</label>
+				</div>
+			</div>
+			
+			
+		</div>
+
+		
+		
+		<button type="submit" class="btn btn-primary">Enregistrer</button>
+	</form>
+
+</div>

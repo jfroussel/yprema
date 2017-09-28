@@ -10,33 +10,33 @@ export default class extends Module {
 	getData(){
 		var id = jstack.url.getParams(this.hash).id;
 		return [
-			id ? $serviceJSON('gifts/crud','load', [id]) : { gift: {} },
+			id ? $serviceJSON('sites/crud','load', [id]) : { site: {} },
 		];
 	}
 	
 	domReady(){
         var data = this.data;
 		var form = $(this.element).find('form');
-		let gift = data.gift;
+		let site = data.site;
 		
 		$('.notifyjs-corner').empty(); //clean notify js the hard way
 				
 		form.validate({
 			submitHandler: function(){
-				$serviceJSON('gifts/crud','store',[data.gift],function(r){
+				$serviceJSON('sites/crud','store',[data.site],function(r){
 					if(r.error){
 						$.notify('Erreur: '+r.error,'error');
 					}
 					else{
-						$.extend(gift,r.gift);
-						if(gift.id){
-							$.notify('Le cadeau a bien été mis à jour', "success");
+						$.extend(site,r.site);
+						if(site.id){
+							$.notify('Le site a bien été mis à jour', "success");
 						}
 						else{
-							$.notify('Le cadeau a bien été créé', "success");
+							$.notify('Le site a bien été créé', "success");
 						}
 						setTimeout(function(){
-							jstack.route('gifts/crud',{id: r.id});
+							jstack.route('sites/crud',{id: r.id});
 						},1000);
 					}
 				});
