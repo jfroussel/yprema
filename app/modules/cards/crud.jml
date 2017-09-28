@@ -1,0 +1,37 @@
+<div class="container">
+    
+	<form j-name="card">
+		
+		<div class="card-header ch-alt">
+			<h2>{{card.id?'Éditer la carte de fidélité '+card.barcode:'Ajouter une carte de fidélité'}}</h2>
+		</div>
+		<br>
+		
+		<div class="card-body card-padding">
+			
+			<div class="row">
+				<div class="form-group fg-float">
+					<div class="fg-line">
+						<input type="text" name="barcode" value="" class="form-control" :disabled="{{card.id}}">
+					</div>
+					<label class="fg-label">Code barre de la carte</label>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="form-group fg-float">
+					<div class="fg-line">
+						<input type="text" name="solde_total" value="" class="form-control">
+					</div>
+					<label class="fg-label">Solde</label>
+				</div>
+			</div>
+			
+		</div>
+
+		
+		
+		<button type="submit" class="btn btn-primary">Enregistrer</button>
+	</form>
+
+</div>

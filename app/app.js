@@ -17,6 +17,7 @@ let routes = {
 
 	"contacts/all": require("./modules/contacts/all").default,
 	"cards/all": require("./modules/cards/all").default,
+	"cards/crud": require("./modules/cards/crud").default,
 	"drivers/all": require("./modules/drivers/all").default,
 
 	"users/all": require("./modules/users/all").default,

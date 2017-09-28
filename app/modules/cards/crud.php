@@ -33,6 +33,12 @@ class Crud extends AbstractController{
             'card' =>$this->db['card'][$id],
 		];
 	}
-
+	
+	function checkBarcode($params){
+		list($barcode,$compare) = explode(',',$params);
+		if(!$barcode) return true;
+		$id = $this->db['card']->unSelect()->select('id')->where('barcode = ?',[$barcode])->getCell();
+		return (!$id)||($compare&&$id==$compare);
+	}
 	
 }

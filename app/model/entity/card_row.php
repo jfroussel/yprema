@@ -20,7 +20,12 @@ class Card_Row extends EntityModel{
 
 
     function beforePut(){
-		
+		if(isset($this->statut)){
+			$this->statut = $this->statut?1:0;
+		}
+		if(isset($this->solde_total)){
+			$this->solde_total = (int)$this->solde_total;
+		}
     }
     function beforeRecursive(){
 
@@ -36,9 +41,6 @@ class Card_Row extends EntityModel{
     }
     function beforeDelete(){}
     function afterPut(){
-		if(isset($this->statut)){
-			$this->statut = $this->statut?1:0;
-		}
 	}
     function afterCreate(){}
     function afterRead(){

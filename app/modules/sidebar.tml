@@ -42,14 +42,12 @@
 			<ul class="main-menu">
 				<li class="active"><a href="#"><i class="zmdi zmdi-home"></i> Accueil</a></li>
 
-				<li class="sub-menu active">
-					<a href=""><i class="zmdi zmdi-widgets"></i> Consulter</a>
-					<ul>
-						<li><a class="active" href="#drivers/all">Chauffeurs</a></li>
-						<li><a class="active" href="#cards/all">Cartes de fidelité</a></li>
-						<li><a class="active" href="#passages/all">Passages</a></li>
-					</ul>
-				</li>
+				
+				<li><a class="active" href="#drivers/all"><i class="zmdi zmdi-home"></i> Chauffeurs</a></li>
+				<li><a class="active" href="#cards/all"><i class="zmdi zmdi-home"></i> Cartes de fidelité</a></li>
+				<li><a class="active" href="#articles/all"><i class="zmdi zmdi-home"></i> Matériaux</a></li>
+				<li><a class="active" href="#gifts/all"><i class="zmdi zmdi-home"></i> Cadeaux</a></li>
+				<li><a class="active" href="#passages/all"><i class="zmdi zmdi-home"></i> Passages</a></li>
 			</ul>
 		</div>
 	</aside>
