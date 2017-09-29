@@ -28,15 +28,17 @@ class Delivery_Row extends EntityModel{
         $this->card_id = $card->id;
         $this->driver_id = $card->driver_id;
         
+        $driver = $this->db['driver'][$this->driver_id];
+        
         if(!$this->gift_id){
 			throw new ValidationException('Cadeau non spécifié');
 		}
         
         $gift = $this->db['gift'][$this->gift_id];
         
-        $this->points = $gift->nb_points;
-        $card->solde_base = (int)$card->solde_base - (int)$gift->nb_points;
-        $card->store();
+        $this->points = $gift->points;
+        $driver->points = (int)$driver->points - (int)$gift->points;
+        $driver->store();
     }
     function beforeRead(){}
     function beforeUpdate(){

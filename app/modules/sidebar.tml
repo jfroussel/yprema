@@ -45,8 +45,8 @@
 				
 				<li><a class="active" href="#drivers/all"><i class="zmdi zmdi-face"></i> Chauffeurs</a></li>
 				<li><a class="active" href="#cards/all"><i class="zmdi zmdi-card"></i> Cartes de fidelité</a></li>
-				<li><a class="active" href="#passages/all"><i class="zmdi zmdi-truck"></i> Passages</a></li>
-				<li><a class="active" href="#gifts/delivery"><i class="zmdi zmdi-card-giftcard"></i> Remise de Cadeau</a></li>
+				<li><a class="active" href="#passages/create"><i class="zmdi zmdi-truck"></i> Passages</a></li>
+				<li><a class="active" href="#gifts/delivery"><i class="zmdi zmdi-card-giftcard"></i> Cadeau</a></li>
 				
 			</ul>
 		</div>

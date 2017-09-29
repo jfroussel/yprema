@@ -16,7 +16,6 @@ export default class extends Module {
         var data = this.data;
         data.driver = {};
         data.statut = '';
-        data.solde_base = '';
         data.delivery = {
 			barcode: '',
 		};

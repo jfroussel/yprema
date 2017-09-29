@@ -68,4 +68,8 @@ class Crud extends AbstractController{
 		return $r;
 	}
 	
+	function delete($id){
+		unset($this->db['card'][$id]);
+	}
+	
 }

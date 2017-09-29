@@ -5,7 +5,7 @@ class Gift_Row extends EntityModel{
 
     protected $validateProperties = [
 		'description',
-		'nb_points',
+		'points',
 		'code',
 		'stock',
     ];
@@ -18,8 +18,8 @@ class Gift_Row extends EntityModel{
     function beforeRead(){}
     function beforeUpdate(){
 		
-		if(isset($this->nb_points)){
-			$this->nb_points = (int)$this->nb_points;
+		if(isset($this->points)){
+			$this->points = (int)$this->points;
 		}
 		if(isset($this->stock)){
 			$this->stock = (int)$this->stock;

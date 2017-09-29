@@ -34,10 +34,6 @@ class Driver_Row extends EntityModel{
 	
 	function getDynamic(){
         $this->dynamic->barcode = $this->getBarcode();
-		
-		$this->dynamic->solde_base = $this->getSoldeBase();
-        
-        $this->dynamic->solde_bonus = $this->getSoldeBonus();
         
         $this->dynamic->card_statut = $this->db['card']
 			->unSelect()
@@ -50,21 +46,6 @@ class Driver_Row extends EntityModel{
 
 	function getBarcode(){
 		return $this->card_id?$this->db['card'][$this->card_id]->barcode:null;
-	}
-	
-	function getSoldeBase(){
-		return $this->db['card']
-			->unSelect()
-			->select('SUM(solde_base)')
-			->where('driver_id = ?',[$this->id])
-			->getCell();
-	}
-	function getSoldeBonus(){
-		return $this->db['card']
-			->unSelect()
-			->select('SUM(solde_bonus)')
-			->where('driver_id = ?',[$this->id])
-			->getCell();
 	}
 	
     function beforeValidate(){

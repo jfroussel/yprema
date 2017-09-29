@@ -21,13 +21,12 @@
 			<th data-column="id" data-visible="false">id</th>
 			<th data-column="barcode">n° Carte</th>
 			<th data-column="driver_id">id chauffeur</th>
-			<th data-column="solde_base">solde de base</th>
-			<th data-column="solde_bonus">solde bonus</th>
 			<th data-column="site_creation">site creation</th>
 			<th data-column="ctime" data-format="dateformat">date de creation</th>
 			<th data-column="mtime" data-format="dateformat">date de modification</th>
 			<th data-column="statut" data-format="active" data-url="cards/crud.json?method=store" data-css-class="toggler">statut</th>
 			<th data-action="edit" data-route="cards/crud?id="></th>
+			<th data-action="remove" data-remove-column="barcode" data-url="cards/crud.json?method=delete"></th>
 		</tr>
 		</thead>
 		<tbody></tbody>

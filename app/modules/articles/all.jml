@@ -20,7 +20,7 @@
 			<th data-column="code">CODE</th>
 			<th data-column="designation">Désignation</th>
 			<th data-column="mouvement">Mouvement</th>
-			<th data-column="nb_points_basique">Nombre de points</th>
+			<th data-column="points">Nombre de points</th>
 			<th data-action="edit" data-route="articles/crud?id="></th>
 		</tr>
 		</thead>

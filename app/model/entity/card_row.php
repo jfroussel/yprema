@@ -11,8 +11,6 @@ class Card_Row extends EntityModel{
     protected $validateProperties = [
         'driver_id',
         'barcode',
-        'solde_base',
-        'solde_bonus',
         'statut',
         'site_creation',
     ];
@@ -21,12 +19,6 @@ class Card_Row extends EntityModel{
     function beforePut(){
 		if(isset($this->statut)){
 			$this->statut = $this->statut?1:0;
-		}
-		if(isset($this->solde_base)){
-			$this->solde_base = (int)$this->solde_base;
-		}
-		if(isset($this->solde_bonus)){
-			$this->solde_bonus = (int)$this->solde_bonus;
 		}
     }
     function beforeRecursive(){

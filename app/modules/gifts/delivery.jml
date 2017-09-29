@@ -1,7 +1,7 @@
 <div class="container-fluid" style="padding-top: 20px">
     <div class="row">
         <div class="col-md-6">
-            <h3 class="text-left">Délivrer un cadeau </h3>
+            <h3 class="text-left">Commander un cadeau </h3>
             <h4 class="text-left">{{statut}} </h4>
             <div class="jumbotron">
                 <form  method="post" j-name="delivery" id="delivery">
@@ -24,7 +24,7 @@
 
                     <div class="col-md-12 text-left">
                         <p>
-                            <button type="submit" class="btn btn-lg btn-primary">Valider la remise de cadeau</button>
+                            <button type="submit" class="btn btn-lg btn-primary">Valider la commande de cadeau</button>
                         </p>
                     </div>
                 </form>
@@ -39,7 +39,7 @@
                         <li><i class="zmdi zmdi-account"></i>{{driver.prenom==null?'non defini':driver.prenom}}</li>
                         <li><i class="zmdi zmdi-phone"></i>{{driver.portable==null?'non defini':driver.portable}}</li>
                         <li><i class="zmdi zmdi-email"></i>{{driver.email==null?'non defini':driver.email}}</li>
-                        <li><i class="zmdi zmdi-info"></i>Solde de base: {{solde_base}}</li>
+                        <li><i class="zmdi zmdi-info"></i>Points: {{driver.points}}</li>
                         <li>
                             <i class="zmdi zmdi-pin"></i>
                             <address class="m-b-0 ng-binding">

@@ -33,6 +33,8 @@ class Passage_Row extends EntityModel{
         $this->card_id = $card->id;
         $this->driver_id = $card->driver_id;
         
+        $driver = $this->db['driver'][$this->driver_id];
+        
         if(!$this->article_id){
 			throw new ValidationException('Matériau non spécifié');
 		}
@@ -40,9 +42,9 @@ class Passage_Row extends EntityModel{
         $article = $this->db['article'][$this->article_id];
         $this->article_designation = $article->designation;
         
-        $this->points = $article->nb_points_basique;
-        $card->solde_base = (int)$card->solde_base + (int)$article->nb_points_basique;
-        $card->store();
+        $this->points = $article->points;
+        $driver->points = (int)$driver->points + (int)$article->points;
+        $driver->store();
     }
     function beforeRead(){}
     function beforeUpdate(){

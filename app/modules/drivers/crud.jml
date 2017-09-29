@@ -104,6 +104,15 @@
 				</div>
 			</div>
 			
+			<div class="row">
+				<div class="form-group fg-float">
+					<div class="fg-line">
+						<input type="text" name="points" value="" class="form-control" style="text-transform:uppercase">
+					</div>
+					<label class="fg-label">Points</label>
+				</div>
+			</div>
+			
 		</div>
 
 		

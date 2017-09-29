@@ -6,12 +6,12 @@ class Article_Row extends EntityModel{
 		'code',
 		'designation',
 		'mouvement',
-		'nb_points_basique',
+		'points',
     ];
 
     function beforePut(){
-		if(isset($this->nb_points_basique)){
-			$this->nb_points_basique = (int)$this->nb_points_basique;
+		if(isset($this->points)){
+			$this->points = (int)$this->points;
 		}
 	}
     function beforeRecursive(){}

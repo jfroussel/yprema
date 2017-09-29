@@ -39,7 +39,7 @@
 			<div class="row">
 				<div class="form-group fg-float">
 					<div class="fg-line">
-						<input type="text" name="nb_points_basique" value="" class="form-control">
+						<input type="text" name="points" value="" class="form-control">
 					</div>
 					<label class="fg-label">Nombre de points</label>
 				</div>

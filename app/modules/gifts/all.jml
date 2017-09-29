@@ -19,7 +19,7 @@
 			<th data-column="id" data-visible="false">id</th>
 			<th data-column="code">CODE</th>
 			<th data-column="description">Description</th>
-			<th data-column="nb_points">Nombre de points</th>
+			<th data-column="points">Nombre de points</th>
 			<th data-column="stock">stock</th>
 			<th data-action="edit" data-route="gifts/crud?id="></th>
 		</tr>

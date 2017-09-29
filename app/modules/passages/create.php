@@ -33,7 +33,7 @@ class Create extends AbstractController{
 		$this->db['passage']->simpleEntity($data)->store();
         
         return [
-			'solde_base'=>$driver->getSoldeBase() ? : '0',
+			'driver'=>$driver,
 		];
     }
 	
@@ -49,7 +49,6 @@ class Create extends AbstractController{
         if(!$driver) return;
         return [
 			'driver'=>$driver,
-			'solde_base'=>$driver->getSoldeBase() ? : '0',
 		];
     }
 
